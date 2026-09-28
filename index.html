@@ -1,0 +1,3208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Vishal Bhaliya | Senior Full Stack .NET Developer & Tech Lead</title>
+  
+  <meta name="description" content="Portfolio of Vishal Bhaliya - Senior Full Stack .NET Developer & Team Lead with 5+ years experience at Ramanshee Infotech. Architect of 12+ Enterprise ERP solutions.">
+  <meta name="theme-color" content="#070b14">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME CONFIGURATION
+       ========================================================================== */
+    :root {
+      --bg-dark: #070b14;
+      --bg-card: rgba(14, 22, 41, 0.75);
+      --bg-card-hover: rgba(24, 36, 68, 0.9);
+      --bg-glass: rgba(15, 23, 42, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.35);
+      --border-glow: rgba(129, 140, 248, 0.45);
+      --primary: #38bdf8;
+      --primary-light: #7dd3fc;
+      --secondary: #818cf8;
+      --accent: #c084fc;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --gradient-main: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --gradient-emerald: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-glow: 0 0 35px rgba(56, 189, 248, 0.18);
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+      --shadow-modal: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Interactive Particle Canvas */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ambient Glow Blobs */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.25;
+      animation: floatOrb 24s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: clamp(300px, 40vw, 600px);
+      height: clamp(300px, 40vw, 600px);
+      background: radial-gradient(circle, #38bdf8, transparent 70%);
+      top: -120px;
+      left: -100px;
+      animation-duration: 22s;
+    }
+
+    .orb-2 {
+      width: clamp(350px, 45vw, 650px);
+      height: clamp(350px, 45vw, 650px);
+      background: radial-gradient(circle, #818cf8, transparent 70%);
+      bottom: 5%;
+      right: -120px;
+      animation-duration: 26s;
+      animation-delay: -5s;
+    }
+
+    .orb-3 {
+      width: clamp(280px, 35vw, 500px);
+      height: clamp(280px, 35vw, 500px);
+      background: radial-gradient(circle, #c084fc, transparent 70%);
+      top: 45%;
+      left: 25%;
+      animation-duration: 30s;
+      animation-delay: -10s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, 70px) scale(1.1); }
+      100% { transform: translate(-30px, 40px) scale(0.95); }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 32px);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       SCROLL REVEAL ANIMATIONS
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Staggered delay helpers */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* ==========================================================================
+       HEADER & RESPONSIVE NAVBAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(7, 11, 20, 0.8);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition-smooth);
+    }
+
+    .navbar.scrolled {
+      background: rgba(7, 11, 20, 0.95);
+      border-bottom-color: var(--border-accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: clamp(65px, 9vw, 78px);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    }
+
+    .brand-badge {
+      font-family: var(--font-code);
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      border: 1px solid var(--border-accent);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
+      transition: var(--transition-smooth);
+    }
+
+    .brand-logo:hover .brand-badge {
+      background: var(--primary);
+      color: #04101e;
+      box-shadow: 0 0 15px var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--gradient-main);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Live Call Window Chip */
+    .live-call-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: #34d399;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .live-call-chip:hover {
+      background: rgba(16, 185, 129, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .live-call-chip .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px var(--success);
+      animation: pulseGlow 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
+    /* Mobile Hamburger Menu Toggle Button */
+    .mobile-menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      font-size: 1.25rem;
+      transition: var(--transition-smooth);
+      z-index: 1002;
+    }
+
+    .mobile-menu-toggle:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Mobile Drawer Menu */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(85vw, 360px);
+      height: 100vh;
+      background: rgba(10, 16, 31, 0.98);
+      backdrop-filter: blur(24px);
+      border-left: 1px solid var(--border-glow);
+      box-shadow: -15px 0 35px rgba(0, 0, 0, 0.7);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      padding: 90px 24px 30px;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .mobile-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      display: none;
+    }
+
+    .mobile-drawer-overlay.open {
+      display: block;
+    }
+
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .mobile-drawer-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-drawer-link i {
+      color: var(--primary);
+      width: 22px;
+      text-align: center;
+    }
+
+    .mobile-drawer-link:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: var(--border-accent);
+      color: var(--primary-light);
+      transform: translateX(4px);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding: clamp(40px, 8vw, 85px) 0 clamp(30px, 6vw, 60px);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(30px, 5vw, 60px);
+      align-items: center;
+    }
+
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid var(--border-accent);
+      border-radius: 999px;
+      font-size: clamp(0.78rem, 1.8vw, 0.86rem);
+      color: var(--primary);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.1);
+    }
+
+    .hero-pill-badge i {
+      animation: rotateAtom 6s linear infinite;
+    }
+
+    @keyframes rotateAtom {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      position: relative;
+    }
+
+    .animated-typing {
+      font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: 20px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.25em;
+      background: var(--primary);
+      animation: blinkCursor 0.9s infinite;
+    }
+
+    @keyframes blinkCursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero-desc {
+      font-size: clamp(0.98rem, 2vw, 1.14rem);
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 26px;
+      max-width: 630px;
+    }
+
+    .hero-desc strong {
+      color: var(--text-main);
+    }
+
+    .hero-feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .f-tag {
+      font-size: clamp(0.76rem, 1.6vw, 0.85rem);
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .f-tag:hover {
+      border-color: var(--border-accent);
+      color: var(--text-main);
+      transform: translateY(-2px);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .f-tag i {
+      color: var(--primary);
+    }
+
+    /* Interactive Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: clamp(11px, 2vw, 14px) clamp(20px, 3vw, 28px);
+      border-radius: var(--radius-sm);
+      font-size: clamp(0.88rem, 1.8vw, 0.98rem);
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .btn:hover::after {
+      transform: rotate(45deg) translateX(100%);
+    }
+
+    .btn-primary {
+      background: var(--gradient-main);
+      color: #04101e;
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-book-call {
+      background: var(--gradient-emerald);
+      color: #ffffff;
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-book-call:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.55);
+    }
+
+    .btn-ask {
+      background: rgba(192, 132, 252, 0.12);
+      color: #e9d5ff;
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      box-shadow: 0 8px 25px rgba(192, 132, 252, 0.15);
+    }
+
+    .btn-ask:hover {
+      background: rgba(192, 132, 252, 0.25);
+      border-color: #c084fc;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(192, 132, 252, 0.35);
+    }
+
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    /* Terminal & Floating Cards */
+    .hero-interactive-card {
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .code-terminal {
+      background: rgba(10, 16, 31, 0.95);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-glow), var(--shadow-card);
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transform-style: preserve-3d;
+    }
+
+    .code-terminal:hover {
+      transform: translateY(-4px) rotateX(1deg);
+      box-shadow: 0 20px 45px rgba(56, 189, 248, 0.25);
+    }
+
+    .terminal-header {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .t-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .t-dot.red { background: #ef4444; }
+    .t-dot.yellow { background: #f59e0b; }
+    .t-dot.green { background: #10b981; }
+
+    .terminal-file {
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .terminal-body {
+      padding: clamp(16px, 3vw, 24px);
+      font-family: var(--font-code);
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+      line-height: 1.7;
+      overflow-x: auto;
+    }
+
+    .kwd { color: #f472b6; }
+    .typ { color: #38bdf8; }
+    .str { color: #a7f3d0; }
+    .num { color: #facc15; }
+    .comment { color: #64748b; font-style: italic; }
+
+    .floating-chip {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid var(--border-accent);
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: floatWidget 6s ease-in-out infinite alternate;
+      backdrop-filter: blur(14px);
+      z-index: 2;
+    }
+
+    .chip-lead { top: -20px; right: -15px; }
+    .chip-erps { bottom: -20px; left: -15px; animation-delay: -3s; }
+
+    @keyframes floatWidget {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .chip-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .chip-icon.green {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--success);
+    }
+
+    .chip-text strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .chip-text span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Calling Window Banner */
+    .calling-window-banner {
+      margin-top: clamp(28px, 5vw, 45px);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(56, 189, 248, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: var(--radius-md);
+      padding: clamp(16px, 3vw, 24px) clamp(18px, 4vw, 30px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .banner-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .banner-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--success);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .banner-text h4 {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .banner-text p {
+      color: var(--text-muted);
+      font-size: clamp(0.85rem, 1.8vw, 0.92rem);
+    }
+
+    .banner-text strong {
+      color: #34d399;
+    }
+
+    /* ==========================================================================
+       METRICS BAR (DYNAMIC ANIMATED COUNTERS)
+       ========================================================================== */
+    .metrics-bar {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 15, 28, 0.45);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: clamp(14px, 3vw, 24px);
+    }
+
+    .metric-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: var(--transition-smooth);
+    }
+
+    .metric-item:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .metric-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .metric-val {
+      font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      font-family: var(--font-code);
+      color: var(--text-main);
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       SECTION HEADERS
+       ========================================================================== */
+    section {
+      padding: clamp(50px, 8vw, 90px) 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: clamp(30px, 5vw, 48px);
+    }
+
+    .section-header.text-center {
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       EXPERIENCE SECTION
+       ========================================================================== */
+    .experience-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: clamp(20px, 4vw, 40px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-smooth);
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--gradient-main);
+    }
+
+    .experience-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+    }
+
+    .exp-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .exp-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .exp-company {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--primary);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .exp-period-badge {
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      padding: 8px 16px;
+      background: rgba(129, 140, 248, 0.12);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: var(--radius-sm);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .exp-summary-text {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+
+    .exp-bullet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .exp-bullet-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-smooth);
+    }
+
+    .exp-bullet-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--border-accent);
+      transform: translateX(4px);
+    }
+
+    .exp-bullet-item i {
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .exp-bullet-item div strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .exp-bullet-item div p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       SKILLS SECTION
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(16px, 3vw, 24px);
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: clamp(20px, 3vw, 28px);
+      transition: var(--transition-smooth);
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .skill-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .skill-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    .skill-head h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .s-pill {
+      font-family: var(--font-code);
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      transition: var(--transition-smooth);
+    }
+
+    .s-pill:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--primary);
+      color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .s-pill.glow {
+      background: rgba(56, 189, 248, 0.09);
+      border-color: var(--border-accent);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .s-pill.ai-glow {
+      background: rgba(192, 132, 252, 0.12);
+      border-color: rgba(192, 132, 252, 0.4);
+      color: #e9d5ff;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       PROJECTS SECTION (12+ ERP SHOWCASE & FILTER)
+       ========================================================================== */
+    .erp-filter-controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: clamp(24px, 4vw, 36px);
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: clamp(0.78rem, 1.8vw, 0.88rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gradient-main);
+      color: #04101e;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: clamp(18px, 3vw, 26px);
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: clamp(20px, 3vw, 28px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .project-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .erp-number-badge {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .erp-domain-pill {
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 999px;
+      color: #34d399;
+      font-weight: 600;
+    }
+
+    .project-title {
+      font-size: clamp(1.15rem, 2vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .project-summary {
+      font-size: clamp(0.88rem, 1.8vw, 0.93rem);
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .problem-box {
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 3px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 20px;
+    }
+
+    .problem-box-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+
+    .problem-box p {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .project-tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .ptag {
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 4px;
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       EDUCATION SECTION
+       ========================================================================== */
+    .edu-banner-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: clamp(22px, 4vw, 36px);
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 4vw, 28px);
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-smooth);
+    }
+
+    .edu-banner-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+
+    .edu-badge-icon {
+      width: clamp(56px, 8vw, 72px);
+      height: clamp(56px, 8vw, 72px);
+      border-radius: var(--radius-md);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+      flex-shrink: 0;
+    }
+
+    .edu-details h3 {
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .edu-details h4 {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .edu-details p {
+      color: var(--text-muted);
+      font-size: clamp(0.88rem, 1.8vw, 0.95rem);
+      line-height: 1.6;
+      max-width: 850px;
+    }
+
+    /* ==========================================================================
+       CONTACT SECTION
+       ========================================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: clamp(20px, 4vw, 32px);
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-smooth);
+    }
+
+    .contact-card:hover {
+      border-color: var(--border-glow);
+    }
+
+    .contact-card h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .contact-card p.lead {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .timing-card-box {
+      background: rgba(56, 189, 248, 0.05);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .timing-card-box h4 {
+      font-size: 1rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .time-slot-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      gap: 12px;
+    }
+
+    .time-slot-row:last-child {
+      border-bottom: none;
+    }
+
+    .time-slot-row span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .time-slot-row strong {
+      font-family: var(--font-code);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .direct-links-col {
+      display: grid;
+      gap: 14px;
+    }
+
+    .d-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+    }
+
+    .d-link:hover {
+      border-color: var(--primary);
+      background: rgba(56, 189, 248, 0.08);
+      transform: translateX(4px);
+    }
+
+    .d-link i {
+      font-size: 1.25rem;
+      color: var(--primary);
+      width: 26px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .d-link-info span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .d-link-info strong {
+      font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+      word-break: break-word;
+    }
+
+    /* ==========================================================================
+       MODALS: BOOK A CALL (FULL RESPONSIVE & ANIMATED)
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(12px, 3vw, 24px);
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-window {
+      background: #0f172a;
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      width: 100%;
+      max-width: 560px;
+      box-shadow: var(--shadow-modal), var(--shadow-glow);
+      overflow: hidden;
+      position: relative;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      background: rgba(15, 23, 42, 0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .modal-header h3 {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--danger);
+    }
+
+    .modal-body {
+      padding: clamp(18px, 4vw, 26px);
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .form-label span.req {
+      color: #f43f5e;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(56, 189, 248, 0.05);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .form-select option {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    .slot-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .slot-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.02);
+      transition: var(--transition-smooth);
+      text-align: center;
+    }
+
+    .slot-card:hover {
+      border-color: var(--border-accent);
+      background: rgba(56, 189, 248, 0.04);
+    }
+
+    .slot-card.active {
+      border-color: var(--success);
+      background: rgba(16, 185, 129, 0.12);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+    }
+
+    .slot-card i {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+      display: block;
+      color: var(--success);
+    }
+
+    .slot-card strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .slot-card span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       FLOATING "ASK VISHAL" INTERACTIVE CHAT WIDGET
+       ========================================================================== */
+    .floating-ask-trigger {
+      position: fixed;
+      bottom: clamp(20px, 4vw, 28px);
+      right: clamp(20px, 4vw, 28px);
+      z-index: 998;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 22px;
+      background: var(--gradient-main);
+      color: #04101e;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.45);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-smooth);
+    }
+
+    .floating-ask-trigger:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.6);
+    }
+
+    .floating-ask-trigger i {
+      font-size: 1.2rem;
+    }
+
+    .ask-chat-window {
+      position: fixed;
+      bottom: clamp(85px, 12vw, 95px);
+      right: clamp(16px, 4vw, 28px);
+      width: min(390px, calc(100vw - 32px));
+      height: min(530px, calc(100vh - 120px));
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+      backdrop-filter: blur(24px);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: chatPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ask-chat-window.open {
+      display: flex;
+    }
+
+    @keyframes chatPop {
+      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .chat-header {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .chat-header-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gradient-main);
+      color: #04101e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .chat-header-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .chat-header-info span {
+      font-size: 0.72rem;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .chat-header-info span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--success);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .chat-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat-bubble {
+      max-width: 88%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .chat-bubble.bot {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-bubble.user {
+      background: var(--gradient-main);
+      color: #04101e;
+      font-weight: 500;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-suggestions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .suggestion-btn {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--primary-light);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .suggestion-btn:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: var(--primary);
+      transform: translateX(3px);
+    }
+
+    .chat-footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      background: rgba(10, 16, 31, 0.9);
+      flex-shrink: 0;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      color: var(--text-main);
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .chat-input:focus {
+      border-color: var(--primary);
+    }
+
+    .chat-send-btn {
+      background: var(--primary);
+      color: #04101e;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .chat-send-btn:hover {
+      background: #7dd3fc;
+      transform: scale(1.05);
+    }
+
+    /* ==========================================================================
+       MOBILE STICKY QUICK-BAR (FOR ONE-THUMB TAP CONVERSIONS)
+       ========================================================================== */
+    .mobile-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      background: rgba(10, 16, 31, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-glow);
+      z-index: 997;
+      padding: 10px 16px;
+      box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .mobile-bar-actions {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .mobile-bar-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 4px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .mobile-bar-btn i {
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .mobile-bar-btn.primary-highlight {
+      background: var(--gradient-emerald);
+      color: #ffffff;
+      border: none;
+    }
+
+    .mobile-bar-btn.primary-highlight i {
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer {
+      padding: clamp(35px, 6vw, 55px) 0 clamp(75px, 10vw, 45px); /* extra bottom space on mobile for bar */
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      background: rgba(5, 8, 15, 0.85);
+    }
+
+    footer p {
+      margin-bottom: 6px;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (COMPREHENSIVE RESPONSIVENESS)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+      .hero-interactive-card {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .hero-title {
+        font-size: 2.6rem;
+      }
+      .slot-selector-grid {
+        grid-template-columns: 1fr;
+      }
+      .calling-window-banner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .banner-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .banner-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .mobile-bottom-bar {
+        display: block;
+      }
+      .floating-ask-trigger {
+        bottom: 74px;
+        right: 16px;
+        padding: 10px 18px;
+        font-size: 0.88rem;
+      }
+      .ask-chat-window {
+        bottom: 135px;
+        right: 14px;
+        width: calc(100vw - 28px);
+        height: 65vh;
+      }
+      .floating-chip {
+        display: none; /* Hide floating corner chips on small phones to prevent overflow */
+      }
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-group .btn {
+        width: 100%;
+      }
+      .live-call-chip {
+        display: none; /* In navbar, hide on small mobile to give room to brand & toggle */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.15rem;
+      }
+      .animated-typing {
+        font-size: 1.15rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Particle Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Ambient Glowing Blobs -->
+  <div class="ambient-glow">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-logo">
+        <span class="brand-badge">&lt;VB /&gt;</span>
+        <span>Vishal Bhaliya</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links">
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">12+ ERPs</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Right Nav Actions -->
+      <div class="nav-right-actions">
+        <!-- Live Call Window Chip -->
+        <div class="live-call-chip" onclick="openBookModal()" title="Click to Book a Call with Vishal">
+          <span class="pulse-dot"></span>
+          <span id="navLiveClockText">Calls: 9 AM &amp; After 6 PM</span>
+        </div>
+
+        <button class="btn btn-book-call" onclick="openBookModal()" style="padding: 8px 18px; font-size: 0.85rem;">
+          <i class="fa-solid fa-calendar-plus"></i> Book Call
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" onclick="toggleMobileDrawer()" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars" id="menuIcon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Overlay & Menu -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay" onclick="toggleMobileDrawer()"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-drawer-links">
+      <li>
+        <a href="#hero" class="mobile-drawer-link" onclick="toggleMobileDrawer()">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+      </li>
+      <li>
+        <a href="#experience" class="mobile-drawer-link" onclick="toggleMobileDrawer()">
+          <i class="fa-solid fa-briefcase"></i> Experience (5+ Yrs)
+        </a>
+      </li>
+      <li>
+        <a href="#skills" class="mobile-drawer-link" onclick="toggleMobileDrawer()">
+          <i class="fa-solid fa-microchip"></i> Skills &amp; Tech Stack
+        </a>
+      </li>
+      <li>
+        <a href="#projects" class="mobile-drawer-link" onclick="toggleMobileDrawer()">
+          <i class="fa-solid fa-cubes-stacked"></i> 12+ ERP Solutions
+        </a>
+      </li>
+      <li>
+        <a href="#education" class="mobile-drawer-link" onclick="toggleMobileDrawer()">
+          <i class="fa-solid fa-graduation-cap"></i> Education (B.E. IT)
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="mobile-drawer-link" onclick="toggleMobileDrawer()">
+          <i class="fa-solid fa-phone"></i> Contact &amp; Schedule
+        </a>
+      </li>
+    </ul>
+
+    <div style="display: grid; gap: 12px; margin-top: auto;">
+      <button class="btn btn-book-call" onclick="toggleMobileDrawer(); openBookModal();" style="width: 100%;">
+        <i class="fa-solid fa-calendar-check"></i> Book Call Slot
+      </button>
+      <button class="btn btn-ask" onclick="toggleMobileDrawer(); toggleAskChat();" style="width: 100%;">
+        <i class="fa-solid fa-comments"></i> Ask Vishal (Q&amp;A)
+      </button>
+      <a href="tel:+919876543210" class="btn btn-glass" style="width: 100%;">
+        <i class="fa-solid fa-phone"></i> Direct Phone Call
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-section" id="hero">
+    <div class="container">
+      
+      <div class="hero-grid">
+        <!-- Hero Left Info -->
+        <div class="hero-info reveal-left">
+          
+          <div class="hero-pill-badge">
+            <i class="fa-solid fa-atom"></i>
+            <span>Senior Full Stack .NET Developer &bull; 2 Yrs Team Lead</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Vishal Bhaliya</span>
+          </h1>
+
+          <div class="animated-typing">
+            <span id="typewriterText">Full Stack .NET Developer</span>
+            <span class="typing-cursor"></span>
+          </div>
+
+          <p class="hero-desc">
+            With <strong>5+ years of software engineering excellence at Ramanshee Infotech</strong>, I architect resilient enterprise systems, develop <strong>12+ turnkey ERP solutions</strong>, and solve complex business problems. Proficient across C#, .NET Core, SQL Server, VistaDB, Oracle, legacy desktop modernizations, and state-of-the-art AI-augmented engineering workflows.
+          </p>
+
+          <div class="hero-feature-tags">
+            <span class="f-tag"><i class="fa-brands fa-microsoft"></i> C# &bull; .NET Core</span>
+            <span class="f-tag"><i class="fa-solid fa-cubes"></i> 12+ ERP Solutions</span>
+            <span class="f-tag"><i class="fa-solid fa-database"></i> SQL &bull; VistaDB &bull; Oracle</span>
+            <span class="f-tag"><i class="fa-solid fa-users"></i> 2 Yrs Team Leader</span>
+            <span class="f-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Accelerated</span>
+          </div>
+
+          <!-- Hero Action Buttons including Book Call & Ask Option -->
+          <div class="btn-group">
+            <button class="btn btn-book-call" onclick="openBookModal()">
+              <i class="fa-solid fa-calendar-check"></i> Book a Call
+            </button>
+            <button class="btn btn-ask" onclick="toggleAskChat()">
+              <i class="fa-solid fa-comments"></i> Ask Vishal (Q&amp;A)
+            </button>
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-layer-group"></i> 12+ ERPs
+            </a>
+            <a href="#contact" class="btn btn-glass">
+              <i class="fa-solid fa-phone"></i> Call Direct
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Hero Right: Interactive Code Terminal & Badges -->
+        <div class="hero-interactive-card reveal-right delay-2">
+          <div class="code-terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="t-dot red"></span>
+                <span class="t-dot yellow"></span>
+                <span class="t-dot green"></span>
+              </div>
+              <div class="terminal-file">VishalBhaliya_TechLead.cs</div>
+              <div style="font-size: 0.75rem; color: #10b981;"><i class="fa-solid fa-bolt"></i> Live Production</div>
+            </div>
+
+            <div class="terminal-body">
+              <pre><code><span class="comment">// Senior Full Stack &amp; ERP Architect</span>
+<span class="kwd">public class</span> <span class="typ">VishalBhaliya</span> : <span class="typ">LeadEngineer</span>
+{
+    <span class="kwd">public string</span> Company => <span class="str">"Ramanshee Infotech"</span>;
+    <span class="kwd">public int</span> Experience => <span class="num">5</span>; <span class="comment">// 5+ Years</span>
+    <span class="kwd">public int</span> TeamLeadYears => <span class="num">2</span>;
+    <span class="kwd">public int</span> ShippedERPs => <span class="num">12</span>;
+    <span class="kwd">public string</span> Degree => <span class="str">"B.E. in Information Technology"</span>;
+
+    <span class="kwd">public string</span>[] CoreTech => <span class="kwd">new</span>[] {
+        <span class="str">"C#"</span>, <span class="str">".NET Core"</span>, <span class="str">"ASP.NET MVC"</span>,
+        <span class="str">"REST API"</span>, <span class="str">"SQL Server"</span>, <span class="str">"VistaDB"</span>,
+        <span class="str">"Oracle"</span>, <span class="str">"WinForms/Desktop"</span>
+    };
+
+    <span class="kwd">public string</span>[] AIEngines => <span class="kwd">new</span>[] {
+        <span class="str">"Antigravity"</span>, <span class="str">"Claude"</span>, <span class="str">"DeepSeek"</span>, <span class="str">"ChatGPT"</span>
+    };
+
+    <span class="kwd">public string</span> PreferredCallSlot() =>
+        <span class="str">"Morning (9:00 AM) &amp; Evening (After 6:00 PM IST)"</span>;
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-chip chip-lead">
+            <div class="chip-icon green"><i class="fa-solid fa-people-roof"></i></div>
+            <div class="chip-text">
+              <strong>2+ Years</strong>
+              <span>Team Leader &bull; Ramanshee</span>
+            </div>
+          </div>
+
+          <div class="floating-chip chip-erps">
+            <div class="chip-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+            <div class="chip-text">
+              <strong>12+ Solutions</strong>
+              <span>Turnkey ERPs Deployed</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Calling Window Banner -->
+      <div class="calling-window-banner reveal">
+        <div class="banner-left">
+          <div class="banner-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="banner-text">
+            <h4>Recommended Calling Schedule (IST)</h4>
+            <p>
+              Morning Window: <strong>9:00 AM &ndash; 10:30 AM</strong> &bull; Evening Window: <strong>After 6:00 PM</strong>
+            </p>
+          </div>
+        </div>
+        <div class="banner-actions">
+          <button class="btn btn-book-call" onclick="openBookModal()">
+            <i class="fa-solid fa-calendar-check"></i> Book Your Slot
+          </button>
+          <a href="tel:+919876543210" class="btn btn-glass">
+            <i class="fa-solid fa-phone"></i> Call Direct
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Key Metrics Counter Bar -->
+  <section class="metrics-bar">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-item reveal delay-1">
+          <div class="metric-icon"><i class="fa-solid fa-calendar-days"></i></div>
+          <div>
+            <div class="metric-val counter" data-target="5">0</div>
+            <div class="metric-label">Years Experience</div>
+          </div>
+        </div>
+        <div class="metric-item reveal delay-2">
+          <div class="metric-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+          <div>
+            <div class="metric-val counter" data-target="12">0</div>
+            <div class="metric-label">ERP Solutions Built</div>
+          </div>
+        </div>
+        <div class="metric-item reveal delay-3">
+          <div class="metric-icon"><i class="fa-solid fa-crown"></i></div>
+          <div>
+            <div class="metric-val counter" data-target="2">0</div>
+            <div class="metric-label">Years as Team Leader</div>
+          </div>
+        </div>
+        <div class="metric-item reveal delay-4">
+          <div class="metric-icon"><i class="fa-solid fa-database"></i></div>
+          <div>
+            <div class="metric-val counter" data-target="4">0</div>
+            <div class="metric-label">Databases Mastered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-subtitle"><i class="fa-solid fa-briefcase"></i> Track Record</span>
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-desc">Over 5 years of engineering mission-critical software at Ramanshee Infotech, leading sprints, solving complex architectural challenges, and shipping enterprise ERPs.</p>
+      </div>
+
+      <div class="experience-card reveal">
+        <div class="exp-header-row">
+          <div>
+            <h3 class="exp-title">Full Stack Developer &amp; Technical Team Leader</h3>
+            <span class="exp-company"><i class="fa-solid fa-building"></i> Ramanshee Infotech</span>
+          </div>
+          <span class="exp-period-badge">5+ Years Industry Experience</span>
+        </div>
+
+        <p class="exp-summary-text">
+          Directly accountable for end-to-end design, backend architecture, database modeling, and team leadership across multiple industrial software deployments. Combined traditional high-reliability .NET frameworks with modern AI tools to accelerate delivery cycles.
+        </p>
+
+        <div class="exp-bullet-grid">
+          <div class="exp-bullet-item reveal delay-1">
+            <i class="fa-solid fa-users-gear"></i>
+            <div>
+              <strong>2+ Years Team Leadership</strong>
+              <p>Mentored developers, spearheaded Agile sprint planning, led comprehensive code reviews, and mapped enterprise client specifications into software tasks.</p>
+            </div>
+          </div>
+
+          <div class="exp-bullet-item reveal delay-2">
+            <i class="fa-solid fa-server"></i>
+            <div>
+              <strong>Backend &amp; RESTful APIs</strong>
+              <p>Architected scalable backends utilizing C#, ASP.NET MVC, and .NET Core, providing robust REST APIs for web portals, mobile sync, and third-party integrations.</p>
+            </div>
+          </div>
+
+          <div class="exp-bullet-item reveal delay-1">
+            <i class="fa-solid fa-desktop"></i>
+            <div>
+              <strong>Desktop Apps, Web Forms &amp; Console</strong>
+              <p>Engineered responsive WinForms desktop software for high-speed counter billing, legacy ASP.NET Web Forms, and high-throughput background Console schedulers.</p>
+            </div>
+          </div>
+
+          <div class="exp-bullet-item reveal delay-2">
+            <i class="fa-solid fa-database"></i>
+            <div>
+              <strong>Multi-Database Mastery</strong>
+              <p>Designed normalized schemas, stored procedures, indexing strategies, and ETL pipelines across SQL Server, VistaDB, Oracle DB, and MS Access.</p>
+            </div>
+          </div>
+
+          <div class="exp-bullet-item reveal delay-1">
+            <i class="fa-solid fa-bolt"></i>
+            <div>
+              <strong>Complex Problem Solving</strong>
+              <p>Resolved high-concurrency database deadlocks across 100+ POS nodes and tuned financial queries to reduce reporting latency by up to 95%.</p>
+            </div>
+          </div>
+
+          <div class="exp-bullet-item reveal delay-2">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div>
+              <strong>AI-Powered Engineering</strong>
+              <p>Adopted tools like Antigravity, Claude, ChatGPT, and DeepSeek to rapidly scaffold microservices, resolve math algorithms, and build comprehensive unit tests.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-subtitle"><i class="fa-solid fa-microchip"></i> Technology Stack</span>
+        <h2 class="section-title">Core Skills &amp; Competencies</h2>
+        <p class="section-desc">A powerful combination of modern .NET engineering, enterprise database design, desktop platforms, and next-generation AI tooling.</p>
+      </div>
+
+      <div class="skills-grid">
+        
+        <div class="skill-card reveal delay-1">
+          <div class="skill-head">
+            <div class="skill-icon-wrap"><i class="fa-brands fa-microsoft"></i></div>
+            <h3>.NET &amp; C# Architecture</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="s-pill glow">C#</span>
+            <span class="s-pill glow">.NET Core</span>
+            <span class="s-pill glow">MVC</span>
+            <span class="s-pill">Web API</span>
+            <span class="s-pill">REST API</span>
+            <span class="s-pill">Entity Framework</span>
+            <span class="s-pill">LINQ</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal delay-2">
+          <div class="skill-head">
+            <div class="skill-icon-wrap"><i class="fa-brands fa-js"></i></div>
+            <h3>Web &amp; Frontend</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="s-pill glow">HTML / HTML5</span>
+            <span class="s-pill glow">CSS / CSS3</span>
+            <span class="s-pill glow">JavaScript</span>
+            <span class="s-pill">AJAX</span>
+            <span class="s-pill">JSON</span>
+            <span class="s-pill">Responsive Design</span>
+            <span class="s-pill">Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal delay-3">
+          <div class="skill-head">
+            <div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div>
+            <h3>Databases &amp; Storage</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="s-pill glow">SQL (SQL Server)</span>
+            <span class="s-pill glow">VistaDB</span>
+            <span class="s-pill glow">Oracle DB</span>
+            <span class="s-pill glow">MS Access</span>
+            <span class="s-pill">Stored Procedures</span>
+            <span class="s-pill">Index Tuning</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal delay-1">
+          <div class="skill-head">
+            <div class="skill-icon-wrap"><i class="fa-solid fa-desktop"></i></div>
+            <h3>Application Types</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="s-pill glow">Desktop App (WinForms)</span>
+            <span class="s-pill glow">Web Form</span>
+            <span class="s-pill glow">Console App</span>
+            <span class="s-pill">Background Services</span>
+            <span class="s-pill">Hardware POS Drivers</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal delay-2">
+          <div class="skill-head">
+            <div class="skill-icon-wrap" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3>AI Tools for Development</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="s-pill ai-glow">ChatGPT</span>
+            <span class="s-pill ai-glow">DeepSeek</span>
+            <span class="s-pill ai-glow">Claude</span>
+            <span class="s-pill ai-glow">Google Antigravity</span>
+            <span class="s-pill">Prompt Engineering</span>
+            <span class="s-pill">AI Code Refactoring</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal delay-3">
+          <div class="skill-head">
+            <div class="skill-icon-wrap"><i class="fa-solid fa-people-roof"></i></div>
+            <h3>Leadership &amp; Delivery</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="s-pill glow">2 Years Team Leader</span>
+            <span class="s-pill">Agile &amp; Scrum</span>
+            <span class="s-pill">Code Reviews</span>
+            <span class="s-pill">Client Scope Mapping</span>
+            <span class="s-pill">Architecture Design</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section (12+ ERP Solutions & Complex Problems Solved) -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-subtitle"><i class="fa-solid fa-layer-group"></i> Enterprise Impact</span>
+        <h2 class="section-title">Projects: 12+ ERP Solutions &amp; Problem Solving</h2>
+        <p class="section-desc">Delivering turnkey business engines for manufacturing, logistics, accounting, and retail networks while untangling deep architectural bottlenecks.</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="erp-filter-controls reveal">
+        <button class="filter-btn active" onclick="filterErps('all', this)">All ERPs (12+)</button>
+        <button class="filter-btn" onclick="filterErps('mfg', this)">Manufacturing &amp; BOM</button>
+        <button class="filter-btn" onclick="filterErps('retail', this)">Retail &amp; POS</button>
+        <button class="filter-btn" onclick="filterErps('finance', this)">Finance &amp; GST</button>
+        <button class="filter-btn" onclick="filterErps('custom', this)">HRMS &amp; Migration</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        
+        <!-- Project 1 -->
+        <div class="project-card reveal delay-1" data-cat="mfg">
+          <div class="project-top-row">
+            <span class="erp-number-badge">ERP #01</span>
+            <span class="erp-domain-pill">Manufacturing</span>
+          </div>
+          <h3 class="project-title">Multi-Stage Manufacturing &amp; BOM ERP</h3>
+          <p class="project-summary">
+            Enterprise manufacturing suite handling multi-level Bill of Materials (BOM), production planning, scrap ratio calculations, and automatic inventory allocation.
+          </p>
+          <div class="problem-box">
+            <div class="problem-box-title"><i class="fa-solid fa-bolt"></i> Complex Problem Solved</div>
+            <p>Re-architected recursive BOM tree evaluations using SQL recursive CTEs and memory caching, cutting calculation latency from 18 seconds to <strong>under 400ms</strong>.</p>
+          </div>
+          <div class="project-tech-row">
+            <span class="ptag">C#</span>
+            <span class="ptag">.NET Core</span>
+            <span class="ptag">SQL Server</span>
+            <span class="ptag">WinForms</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal delay-2" data-cat="retail">
+          <div class="project-top-row">
+            <span class="erp-number-badge">ERP #02</span>
+            <span class="erp-domain-pill">Retail POS</span>
+          </div>
+          <h3 class="project-title">Multi-Branch Inventory &amp; POS Network</h3>
+          <p class="project-summary">
+            Centralized distribution and high-speed desktop POS network operating across 15+ branch locations with offline billing resilience.
+          </p>
+          <div class="problem-box">
+            <div class="problem-box-title"><i class="fa-solid fa-bolt"></i> Complex Problem Solved</div>
+            <p>Eliminated high-concurrency database deadlocks across 100+ billing counters during peak festive rushes using table-valued parameters and optimistic concurrency tokens.</p>
+          </div>
+          <div class="project-tech-row">
+            <span class="ptag">WinForms</span>
+            <span class="ptag">VistaDB</span>
+            <span class="ptag">REST API</span>
+            <span class="ptag">Background Sync</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal delay-3" data-cat="finance">
+          <div class="project-top-row">
+            <span class="erp-number-badge">ERP #03</span>
+            <span class="erp-domain-pill">Accounting &amp; Tax</span>
+          </div>
+          <h3 class="project-title">Statutory Accounting &amp; GST Invoicing Suite</h3>
+          <p class="project-summary">
+            Double-entry ledger ERP delivering instantaneous Trial Balance, Profit &amp; Loss statements, automatic GST calculation, and E-Way bill generation.
+          </p>
+          <div class="problem-box">
+            <div class="problem-box-title"><i class="fa-solid fa-bolt"></i> Complex Problem Solved</div>
+            <p>Optimized 10M+ row historical ledger queries timing out after 10+ minutes by implementing composite filtered indexes and partitioned views, reducing execution to <strong>4.2 seconds</strong>.</p>
+          </div>
+          <div class="project-tech-row">
+            <span class="ptag">ASP.NET MVC</span>
+            <span class="ptag">SQL Server</span>
+            <span class="ptag">REST API</span>
+            <span class="ptag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card reveal delay-1" data-cat="custom">
+          <div class="project-top-row">
+            <span class="erp-number-badge">ERP #04</span>
+            <span class="erp-domain-pill">HRMS &amp; Hardware</span>
+          </div>
+          <h3 class="project-title">Biometric Attendance &amp; Payroll ERP</h3>
+          <p class="project-summary">
+            Hardware-integrated payroll system interfacing with biometric devices via TCP/IP sockets to automate overtime rules, PF/ESIC deductions, and PDF pay-slips.
+          </p>
+          <div class="problem-box">
+            <div class="problem-box-title"><i class="fa-solid fa-bolt"></i> Complex Problem Solved</div>
+            <p>Built a multi-threaded socket listener console service that prevented device polling timeouts when pulling punch logs simultaneously from 12 remote factory gates.</p>
+          </div>
+          <div class="project-tech-row">
+            <span class="ptag">Console App</span>
+            <span class="ptag">C# .NET</span>
+            <span class="ptag">Oracle DB</span>
+            <span class="ptag">Web API</span>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card reveal delay-2" data-cat="custom">
+          <div class="project-top-row">
+            <span class="erp-number-badge">ERP #05</span>
+            <span class="erp-domain-pill">Legacy Modernization</span>
+          </div>
+          <h3 class="project-title">MS Access &amp; Web Forms to .NET Core Migration</h3>
+          <p class="project-summary">
+            Complete architectural modernization of a 15-year-old enterprise software suite running on legacy MS Access databases and Web Forms into modern ASP.NET Core REST APIs.
+          </p>
+          <div class="problem-box">
+            <div class="problem-box-title"><i class="fa-solid fa-bolt"></i> Complex Problem Solved</div>
+            <p>Migrated 100% of historical transactional data without business downtime using automated reconciliation scripts and a dual-write sync layer during the transition period.</p>
+          </div>
+          <div class="project-tech-row">
+            <span class="ptag">MS Access</span>
+            <span class="ptag">.NET Core</span>
+            <span class="ptag">SQL Server</span>
+            <span class="ptag">Web Forms</span>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card reveal delay-3" data-cat="mfg">
+          <div class="project-top-row">
+            <span class="erp-number-badge">ERP #06</span>
+            <span class="erp-domain-pill">Textile Industry</span>
+          </div>
+          <h3 class="project-title">Textile Job-Work &amp; Dyeing Lot ERP</h3>
+          <p class="project-summary">
+            Custom manufacturing ERP tracking gray fabric receipt, dyeing lot chemical formulas, shrinkage loss percentages, and merchant delivery challans.
+          </p>
+          <div class="problem-box">
+            <div class="problem-box-title"><i class="fa-solid fa-bolt"></i> Complex Problem Solved</div>
+            <p>Designed a custom mathematical reconciliation engine to balance non-linear fabric shrinkage and dye wastage variances across complex multi-client lots.</p>
+          </div>
+          <div class="project-tech-row">
+            <span class="ptag">C# MVC</span>
+            <span class="ptag">HTML/CSS</span>
+            <span class="ptag">JavaScript</span>
+            <span class="ptag">SQL Server</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-subtitle"><i class="fa-solid fa-graduation-cap"></i> Education</span>
+        <h2 class="section-title">Academic Background</h2>
+      </div>
+
+      <div class="edu-banner-card reveal">
+        <div class="edu-badge-icon"><i class="fa-solid fa-user-graduate"></i></div>
+        <div class="edu-details">
+          <h3>Bachelor of Engineering (B.E.)</h3>
+          <h4>Information Technology (Graduated)</h4>
+          <p>
+            Rigorous 4-year degree emphasizing Data Structures &amp; Algorithms, Relational Database Management Systems (RDBMS), Object-Oriented Software Engineering, and Computer Networks. Provided the core engineering fundamentals behind 5+ years of production software architecture.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Call Schedule Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-subtitle"><i class="fa-solid fa-phone-volume"></i> Get In Touch</span>
+        <h2 class="section-title">Contact &amp; Call Availability</h2>
+        <p class="section-desc">Available for Full Stack .NET roles, ERP architecture consulting, and technical team leadership.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <div class="contact-card reveal-left">
+          <h3>Call Availability</h3>
+          <p class="lead">
+            Available for introductory calls, technical discussions, and interviews during the following daily windows:
+          </p>
+
+          <div class="timing-card-box">
+            <h4><i class="fa-solid fa-clock"></i> Daily Calling Schedule (IST)</h4>
+            
+            <div class="time-slot-row">
+              <span><i class="fa-solid fa-sun" style="color: #f59e0b;"></i> Morning Window</span>
+              <strong>9:00 AM (IST)</strong>
+            </div>
+
+            <div class="time-slot-row">
+              <span><i class="fa-solid fa-moon" style="color: #818cf8;"></i> Evening Window</span>
+              <strong>After 6:00 PM (IST)</strong>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <button class="btn btn-book-call" onclick="openBookModal()" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-calendar-check"></i> Book Call Slot Online
+            </button>
+          </div>
+
+          <p style="font-size: 0.85rem; color: var(--text-dim);">
+            * Urgent inquiries outside these hours can be coordinated via direct WhatsApp message or email.
+          </p>
+        </div>
+
+        <div class="contact-card reveal-right">
+          <h3>Direct Channels</h3>
+          <p class="lead">Reach out directly through any of the channels below:</p>
+
+          <div class="direct-links-col">
+            <a href="tel:+919876543210" class="d-link">
+              <i class="fa-solid fa-phone"></i>
+              <div class="d-link-info">
+                <span>Direct Phone Call</span>
+                <strong>Call Vishal (Morning 9 AM / After 6 PM)</strong>
+              </div>
+            </a>
+
+            <a href="https://wa.me/919876543210?text=Hi%20Vishal,%20I%20would%20like%20to%20connect%20regarding%20an%20opportunity." target="_blank" class="d-link">
+              <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
+              <div class="d-link-info">
+                <span>WhatsApp Messaging</span>
+                <strong>Send Direct WhatsApp Message</strong>
+              </div>
+            </a>
+
+            <a href="mailto:vishalbhaliya.dev@gmail.com" class="d-link">
+              <i class="fa-solid fa-envelope" style="color: #38bdf8;"></i>
+              <div class="d-link-info">
+                <span>Email Address</span>
+                <strong>vishalbhaliya.dev@gmail.com</strong>
+              </div>
+            </a>
+
+            <div class="d-link" style="cursor: default;">
+              <i class="fa-solid fa-location-dot" style="color: #f43f5e;"></i>
+              <div class="d-link-info">
+                <span>Location</span>
+                <strong>Gujarat, India (Open to Remote / Hybrid Roles)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Sticky Quick Bar (One-Thumb Access on Phones) -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bar-actions">
+      <a href="tel:+919876543210" class="mobile-bar-btn">
+        <i class="fa-solid fa-phone"></i>
+        <span>Call</span>
+      </a>
+      <button class="mobile-bar-btn primary-highlight" onclick="openBookModal()">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Book Slot</span>
+      </button>
+      <button class="mobile-bar-btn" onclick="toggleAskChat()">
+        <i class="fa-solid fa-comments"></i>
+        <span>Ask Q&amp;A</span>
+      </button>
+      <a href="https://wa.me/919876543210?text=Hi%20Vishal,%20I%20would%20like%20to%20connect." target="_blank" class="mobile-bar-btn">
+        <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Vishal Bhaliya. All rights reserved.</p>
+      <p>Full Stack Developer &bull; 5+ Years at Ramanshee Infotech &bull; 12+ ERP Solutions Delivered</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL: BOOK A CALL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="bookCallModal" onclick="closeBookModal(event)">
+    <div class="modal-window" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-calendar-check" style="color: #10b981;"></i> Book a Call with Vishal</h3>
+        <button class="modal-close-btn" onclick="closeBookModalDirect()" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+          Select your preferred calling window and provide your contact info. A calendar reminder and WhatsApp confirmation will be prepared immediately!
+        </p>
+
+        <!-- Slot Picker -->
+        <label class="form-label">Select Preferred Calling Slot (IST) <span class="req">*</span></label>
+        <div class="slot-selector-grid">
+          <div class="slot-card active" id="slotMorning" onclick="selectSlot('morning')">
+            <i class="fa-solid fa-sun" style="color: #f59e0b;"></i>
+            <strong>Morning Window</strong>
+            <span>9:00 AM &ndash; 10:30 AM (IST)</span>
+          </div>
+
+          <div class="slot-card" id="slotEvening" onclick="selectSlot('evening')">
+            <i class="fa-solid fa-moon" style="color: #818cf8;"></i>
+            <strong>Evening Window</strong>
+            <span>After 6:00 PM (IST)</span>
+          </div>
+        </div>
+
+        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+          <input type="hidden" id="selectedSlotVal" value="Morning Window (9:00 AM IST)">
+
+          <div class="form-group">
+            <label class="form-label" for="bookName">Your Name &bull; Company <span class="req">*</span></label>
+            <input type="text" class="form-input" id="bookName" placeholder="e.g. John Doe &bull; Tech Corp" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bookPhone">Phone / WhatsApp Number <span class="req">*</span></label>
+            <input type="tel" class="form-input" id="bookPhone" placeholder="+91 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bookDate">Preferred Date <span class="req">*</span></label>
+            <input type="date" class="form-input" id="bookDate" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bookTopic">Discussion Topic</label>
+            <select class="form-select" id="bookTopic">
+              <option value="ERP Architecture Consulting">ERP Architecture Consulting</option>
+              <option value="Senior Full Stack .NET Job Opportunity">Senior Full Stack .NET Job Opportunity</option>
+              <option value="Technical Team Leadership Role">Technical Team Leadership Role</option>
+              <option value="Legacy Database Migration (VistaDB / SQL)">Legacy Database Migration (VistaDB / SQL)</option>
+              <option value="General Technical Inquiry">General Technical Inquiry</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-book-call" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-check-circle"></i> Confirm &amp; Send Booking
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING WIDGET: "ASK VISHAL" INTERACTIVE CHAT
+       ========================================================================== -->
+  <button class="floating-ask-trigger" onclick="toggleAskChat()" id="askTriggerBtn" aria-label="Ask Vishal a question">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span>Ask Vishal</span>
+  </button>
+
+  <div class="ask-chat-window" id="askChatWindow">
+    <div class="chat-header">
+      <div class="chat-header-profile">
+        <div class="chat-avatar">VB</div>
+        <div class="chat-header-info">
+          <h4>Ask Vishal &bull; Assistant</h4>
+          <span>Online &bull; Instant Q&amp;A</span>
+        </div>
+      </div>
+      <button class="chat-close-btn" onclick="toggleAskChat()" aria-label="Close chat">&times;</button>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <div class="chat-bubble bot">
+        Hi! I'm Vishal's interactive portfolio assistant. What would you like to know about his 5+ years of experience, 12+ ERP solutions, or call schedule?
+      </div>
+
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="suggestion-btn" onclick="sendSuggestion('What ERP solutions did Vishal build?')">
+          📦 What ERP solutions did Vishal build?
+        </button>
+        <button class="suggestion-btn" onclick="sendSuggestion('What are his available calling hours?')">
+          ⏰ What are his available calling hours?
+        </button>
+        <button class="suggestion-btn" onclick="sendSuggestion('Tell me about his 2 years as Team Leader')">
+          👑 Tell me about his 2 years as Team Leader
+        </button>
+        <button class="suggestion-btn" onclick="sendSuggestion('What tech stack and databases does he use?')">
+          💻 What tech stack &amp; databases does he use?
+        </button>
+      </div>
+    </div>
+
+    <form class="chat-footer" onsubmit="handleChatSubmit(event)">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask a question..." autocomplete="off">
+      <button type="submit" class="chat-send-btn" aria-label="Send question">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- ==========================================================================
+       SCRIPTS: ANIMATIONS, CANVAS, INTERACTIVITY & RESPONSIVENESS
+       ========================================================================== -->
+  <script>
+    // 1. Dynamic Particle Network Background on HTML5 Canvas
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.7;
+        this.speedY = (Math.random() - 0.5) * 0.7;
+        this.color = Math.random() > 0.5 ? '#38bdf8' : '#818cf8';
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        else if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        else if (this.y < 0) this.y = canvas.height;
+      }
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particlesArray = [];
+      const numberOfParticles = Math.floor((canvas.width * canvas.height) / 22000);
+      for (let i = 0; i < Math.min(numberOfParticles, 55); i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+    initParticles();
+    window.addEventListener('resize', initParticles);
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+
+        for (let j = i + 1; j < particlesArray.length; j++) {
+          const dx = particlesArray[i].x - particlesArray[j].x;
+          const dy = particlesArray[i].y - particlesArray[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 110) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 - distance / 730})`;
+            ctx.lineWidth = 0.6;
+            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 2. Mobile Drawer Navigation
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const icon = document.getElementById('menuIcon');
+
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('open');
+
+      if (drawer.classList.contains('open')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+        document.body.style.overflow = 'hidden';
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // 3. Navbar Background Blur on Scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // 4. Scroll Reveal Observer
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    });
+    revealElements.forEach(el => observer.observe(el));
+
+    // 5. Animated Number Counters
+    let countersStarted = false;
+    const counterElements = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersStarted) {
+          countersStarted = true;
+          counterElements.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const duration = 1500;
+            const stepTime = Math.max(Math.floor(duration / target), 30);
+            
+            const timer = setInterval(() => {
+              count++;
+              counter.textContent = count + '+';
+              if (count >= target) {
+                counter.textContent = target + '+';
+                clearInterval(timer);
+              }
+            }, stepTime);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    const metricsBar = document.querySelector('.metrics-bar');
+    if (metricsBar) counterObserver.observe(metricsBar);
+
+    // 6. Dynamic Typewriter Effect
+    const roles = [
+      "Full Stack .NET Developer",
+      "Technical Team Leader (2+ Yrs)",
+      "12+ Turnkey ERP Architect",
+      "Complex Problem Solver",
+      "AI-Augmented Engineer"
+    ];
+    let roleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typeElement = document.getElementById("typewriterText");
+
+    function typeWriter() {
+      const currentRole = roles[roleIdx];
+      if (isDeleting) {
+        typeElement.textContent = currentRole.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typeElement.textContent = currentRole.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let speed = isDeleting ? 35 : 75;
+
+      if (!isDeleting && charIdx === currentRole.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        speed = 400;
+      }
+
+      setTimeout(typeWriter, speed);
+    }
+    typeWriter();
+
+    // 7. Real-Time IST Call Window Status Indicator
+    function updateCallStatus() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const istTime = new Date(utc + (3600000 * 5.5));
+      const hours = istTime.getHours();
+      
+      const navClock = document.getElementById("navLiveClockText");
+      if (hours >= 9 && hours < 11) {
+        navClock.innerHTML = "🟢 Call Window OPEN (Morning Slot)";
+      } else if (hours >= 18 && hours <= 23) {
+        navClock.innerHTML = "🟢 Call Window OPEN (Evening Slot)";
+      } else {
+        navClock.innerHTML = "Calls: 9 AM &amp; After 6 PM";
+      }
+    }
+    updateCallStatus();
+    setInterval(updateCallStatus, 60000);
+
+    // Set default booking date to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateInput = document.getElementById("bookDate");
+    if (dateInput) {
+      dateInput.value = tomorrow.toISOString().split("T")[0];
+      dateInput.min = new Date().toISOString().split("T")[0];
+    }
+
+    // 8. Book a Call Modal Control
+    function openBookModal() {
+      document.getElementById("bookCallModal").classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeBookModalDirect() {
+      document.getElementById("bookCallModal").classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function closeBookModal(event) {
+      if (event.target.id === "bookCallModal") {
+        closeBookModalDirect();
+      }
+    }
+
+    function selectSlot(type) {
+      const slotMorning = document.getElementById("slotMorning");
+      const slotEvening = document.getElementById("slotEvening");
+      const hiddenVal = document.getElementById("selectedSlotVal");
+
+      if (type === "morning") {
+        slotMorning.classList.add("active");
+        slotEvening.classList.remove("active");
+        hiddenVal.value = "Morning Window (9:00 AM IST)";
+      } else {
+        slotEvening.classList.add("active");
+        slotMorning.classList.remove("active");
+        hiddenVal.value = "Evening Window (After 6:00 PM IST)";
+      }
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("bookName").value;
+      const phone = document.getElementById("bookPhone").value;
+      const date = document.getElementById("bookDate").value;
+      const slot = document.getElementById("selectedSlotVal").value;
+      const topic = document.getElementById("bookTopic").value;
+
+      const message = `Hello Vishal! I would like to book a call.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Date:* ${encodeURIComponent(date)}%0A*Slot:* ${encodeURIComponent(slot)}%0A*Topic:* ${encodeURIComponent(topic)}`;
+
+      window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
+      alert(`Thank you ${name}! Your call request for ${date} (${slot}) is confirmed. Redirecting to WhatsApp to send invite details.`);
+      closeBookModalDirect();
+    }
+
+    // 9. "Ask Vishal" Interactive Q&A Assistant
+    function toggleAskChat() {
+      const chat = document.getElementById("askChatWindow");
+      chat.classList.toggle("open");
+      if (chat.classList.contains("open")) {
+        document.getElementById("chatInput").focus();
+      }
+    }
+
+    const qaDatabase = [
+      {
+        keywords: ["erp", "solution", "solutions", "project", "projects", "build", "built"],
+        answer: "Vishal has architected and delivered **12+ turnkey ERP solutions**! His portfolio spans Multi-Stage Manufacturing & BOM ERPs, Multi-Branch Retail POS with offline sync, Statutory GST Financial suites, and Biometric Payroll systems."
+      },
+      {
+        keywords: ["call", "time", "timing", "available", "schedule", "hour", "hours", "morning", "evening"],
+        answer: "Vishal's preferred calling hours (IST) are: **Morning at 9:00 AM** and **Evening after 6:00 PM**. You can click 'Book Call' to pick a direct slot!"
+      },
+      {
+        keywords: ["leader", "lead", "team", "experience", "years", "ramanshee"],
+        answer: "Vishal has **5+ years of software experience at Ramanshee Infotech**, including **2 full years as Technical Team Leader** managing sprint delivery, architecture reviews, and mentoring engineers."
+      },
+      {
+        keywords: ["tech", "stack", "language", "database", "sql", "c#", ".net", "vistadb", "oracle"],
+        answer: "Core stack: **C#, .NET Core, ASP.NET MVC, REST APIs, HTML/CSS, JavaScript**. Databases: **SQL Server, VistaDB, Oracle DB, MS Access**. Plus Desktop WinForms & Web Forms."
+      },
+      {
+        keywords: ["ai", "chatgpt", "deepseek", "claude", "antigravity"],
+        answer: "Vishal leverages next-gen AI tools including **ChatGPT, DeepSeek, Claude, and Google Antigravity** to accelerate prototyping, verify complex math algorithms, and generate robust automated tests."
+      },
+      {
+        keywords: ["education", "degree", "college", "graduate", "study"],
+        answer: "Vishal graduated with a **Bachelor of Engineering (B.E.) in Information Technology**, providing him a deep foundation in Data Structures, Relational Databases, and Software Architecture."
+      }
+    ];
+
+    function sendSuggestion(text) {
+      document.getElementById("chatInput").value = text;
+      handleChatSubmit(new Event("submit"));
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById("chatInput");
+      const question = input.value.trim();
+      if (!question) return;
+
+      appendChatMessage(question, "user");
+      input.value = "";
+
+      setTimeout(() => {
+        const lowerQ = question.toLowerCase();
+        let foundAnswer = null;
+
+        for (const item of qaDatabase) {
+          if (item.keywords.some(k => lowerQ.includes(k))) {
+            foundAnswer = item.answer;
+            break;
+          }
+        }
+
+        if (!foundAnswer) {
+          foundAnswer = "Great question! Vishal specializes in C#, .NET Core, 12+ ERP systems, and database optimization. Would you like to connect directly via WhatsApp or book a call for 9 AM / after 6 PM?";
+        }
+
+        appendChatMessage(foundAnswer, "bot");
+      }, 400);
+    }
+
+    function appendChatMessage(text, sender) {
+      const body = document.getElementById("chatBody");
+      const bubble = document.createElement("div");
+      bubble.className = `chat-bubble ${sender}`;
+      bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      body.appendChild(bubble);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    // 10. ERP Project Filtering
+    function filterErps(cat, btn) {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const cards = document.querySelectorAll("#projectsGrid .project-card");
+      cards.forEach(card => {
+        if (cat === "all" || card.getAttribute("data-cat") === cat) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
