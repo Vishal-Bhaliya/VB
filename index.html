@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>Vishal Bhaliya | Senior Full Stack .NET Developer & Tech Lead</title>
   
   <meta name="description" content="Portfolio of Vishal Bhaliya - Senior Full Stack .NET Developer & Team Lead with 5+ years experience at Ramanshee Infotech. Architect of 12+ Enterprise ERP solutions.">
@@ -22,9 +22,9 @@
        ========================================================================== */
     :root {
       --bg-dark: #070b14;
-      --bg-card: rgba(14, 22, 41, 0.75);
-      --bg-card-hover: rgba(24, 36, 68, 0.9);
-      --bg-glass: rgba(15, 23, 42, 0.7);
+      --bg-card: rgba(14, 22, 41, 0.78);
+      --bg-card-hover: rgba(24, 36, 68, 0.92);
+      --bg-glass: rgba(15, 23, 42, 0.72);
       --border: rgba(255, 255, 255, 0.08);
       --border-accent: rgba(56, 189, 248, 0.35);
       --border-glow: rgba(129, 140, 248, 0.45);
@@ -37,7 +37,6 @@
       --danger: #ef4444;
       --gradient-main: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
       --gradient-emerald: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
@@ -49,13 +48,14 @@
       --shadow-glow: 0 0 35px rgba(56, 189, 248, 0.18);
       --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
       --shadow-modal: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
-      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -100,44 +100,41 @@
     .glow-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(130px);
-      opacity: 0.25;
-      animation: floatOrb 24s infinite alternate ease-in-out;
+      filter: blur(120px);
+      opacity: 0.22;
+      animation: floatOrb 22s infinite alternate ease-in-out;
     }
 
     .orb-1 {
-      width: clamp(300px, 40vw, 600px);
-      height: clamp(300px, 40vw, 600px);
+      width: clamp(260px, 35vw, 550px);
+      height: clamp(260px, 35vw, 550px);
       background: radial-gradient(circle, #38bdf8, transparent 70%);
-      top: -120px;
-      left: -100px;
-      animation-duration: 22s;
+      top: -100px;
+      left: -80px;
     }
 
     .orb-2 {
-      width: clamp(350px, 45vw, 650px);
-      height: clamp(350px, 45vw, 650px);
+      width: clamp(300px, 40vw, 600px);
+      height: clamp(300px, 40vw, 600px);
       background: radial-gradient(circle, #818cf8, transparent 70%);
       bottom: 5%;
-      right: -120px;
-      animation-duration: 26s;
+      right: -100px;
       animation-delay: -5s;
     }
 
     .orb-3 {
-      width: clamp(280px, 35vw, 500px);
-      height: clamp(280px, 35vw, 500px);
+      width: clamp(240px, 30vw, 450px);
+      height: clamp(240px, 30vw, 450px);
       background: radial-gradient(circle, #c084fc, transparent 70%);
       top: 45%;
-      left: 25%;
-      animation-duration: 30s;
+      left: 20%;
       animation-delay: -10s;
     }
 
     @keyframes floatOrb {
       0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(50px, 70px) scale(1.1); }
-      100% { transform: translate(-30px, 40px) scale(0.95); }
+      50% { transform: translate(40px, 60px) scale(1.08); }
+      100% { transform: translate(-30px, 30px) scale(0.95); }
     }
 
     .container {
@@ -149,13 +146,11 @@
       z-index: 1;
     }
 
-    /* ==========================================================================
-       SCROLL REVEAL ANIMATIONS
-       ========================================================================== */
+    /* Scroll Reveal Animations */
     .reveal {
       opacity: 0;
-      transform: translateY(35px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
@@ -166,8 +161,8 @@
 
     .reveal-left {
       opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(-30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-left.active {
@@ -177,8 +172,8 @@
 
     .reveal-right {
       opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-right.active {
@@ -186,14 +181,8 @@
       transform: translateX(0);
     }
 
-    /* Staggered delay helpers */
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-    .delay-4 { transition-delay: 0.4s; }
-
     /* ==========================================================================
-       HEADER & RESPONSIVE NAVBAR
+       NAVBAR (OPTIMIZED FOR MOBILE & DESKTOP)
        ========================================================================== */
     .navbar {
       position: sticky;
@@ -201,22 +190,22 @@
       z-index: 1000;
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      background: rgba(7, 11, 20, 0.8);
+      background: rgba(7, 11, 20, 0.85);
       border-bottom: 1px solid var(--border);
       transition: var(--transition-smooth);
     }
 
     .navbar.scrolled {
-      background: rgba(7, 11, 20, 0.95);
+      background: rgba(7, 11, 20, 0.96);
       border-bottom-color: var(--border-accent);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
     .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: clamp(65px, 9vw, 78px);
+      height: 68px;
     }
 
     .brand-logo {
@@ -226,7 +215,7 @@
       text-decoration: none;
       color: var(--text-main);
       font-weight: 800;
-      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-size: 1.18rem;
     }
 
     .brand-badge {
@@ -238,19 +227,12 @@
       border-radius: var(--radius-sm);
       font-size: 0.9rem;
       letter-spacing: -0.02em;
-      transition: var(--transition-smooth);
-    }
-
-    .brand-logo:hover .brand-badge {
-      background: var(--primary);
-      color: #04101e;
-      box-shadow: 0 0 15px var(--primary);
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 26px;
+      gap: 24px;
       align-items: center;
     }
 
@@ -264,30 +246,14 @@
       padding: 6px 0;
     }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--gradient-main);
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-
     .nav-link:hover {
       color: var(--primary);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
     }
 
     .nav-right-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     /* Live Call Window Chip */
@@ -305,12 +271,6 @@
       cursor: pointer;
       transition: var(--transition-smooth);
       white-space: nowrap;
-    }
-
-    .live-call-chip:hover {
-      background: rgba(16, 185, 129, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     }
 
     .live-call-chip .pulse-dot {
@@ -331,8 +291,8 @@
     /* Mobile Hamburger Menu Toggle Button */
     .mobile-menu-toggle {
       display: none;
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -340,15 +300,8 @@
       align-items: center;
       justify-content: center;
       color: var(--text-main);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       transition: var(--transition-smooth);
-      z-index: 1002;
-    }
-
-    .mobile-menu-toggle:hover {
-      background: rgba(56, 189, 248, 0.12);
-      border-color: var(--primary);
-      color: var(--primary);
     }
 
     /* Mobile Drawer Menu */
@@ -356,17 +309,18 @@
       position: fixed;
       top: 0;
       right: -100%;
-      width: min(85vw, 360px);
+      width: min(85vw, 340px);
       height: 100vh;
       background: rgba(10, 16, 31, 0.98);
       backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-left: 1px solid var(--border-glow);
       box-shadow: -15px 0 35px rgba(0, 0, 0, 0.7);
       z-index: 1001;
       display: flex;
       flex-direction: column;
-      padding: 90px 24px 30px;
-      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 85px 20px 30px;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       overflow-y: auto;
     }
 
@@ -380,7 +334,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.65);
       backdrop-filter: blur(5px);
       z-index: 1000;
       display: none;
@@ -394,14 +348,14 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      margin-bottom: 30px;
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
     .mobile-drawer-link {
       color: var(--text-main);
       text-decoration: none;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -415,44 +369,42 @@
 
     .mobile-drawer-link i {
       color: var(--primary);
-      width: 22px;
+      width: 20px;
       text-align: center;
     }
 
-    .mobile-drawer-link:hover {
-      background: rgba(56, 189, 248, 0.1);
+    .mobile-drawer-link:hover, .mobile-drawer-link:active {
+      background: rgba(56, 189, 248, 0.12);
       border-color: var(--border-accent);
       color: var(--primary-light);
-      transform: translateX(4px);
     }
 
     /* ==========================================================================
-       HERO SECTION
+       HERO SECTION (CLEAN MOBILE HIERARCHY)
        ========================================================================== */
     .hero-section {
-      padding: clamp(40px, 8vw, 85px) 0 clamp(30px, 6vw, 60px);
+      padding: clamp(35px, 6vw, 75px) 0 clamp(25px, 5vw, 55px);
       position: relative;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: clamp(30px, 5vw, 60px);
+      gap: clamp(24px, 4vw, 50px);
       align-items: center;
     }
 
     .hero-pill-badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
+      gap: 8px;
+      padding: 6px 14px;
       background: rgba(56, 189, 248, 0.08);
       border: 1px solid var(--border-accent);
       border-radius: 999px;
-      font-size: clamp(0.78rem, 1.8vw, 0.86rem);
+      font-size: 0.82rem;
       color: var(--primary);
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.1);
+      margin-bottom: 16px;
     }
 
     .hero-pill-badge i {
@@ -465,11 +417,11 @@
     }
 
     .hero-title {
-      font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+      font-size: clamp(2.1rem, 5vw, 3.5rem);
       font-weight: 800;
       line-height: 1.12;
       letter-spacing: -0.03em;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .gradient-text {
@@ -477,15 +429,14 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
-      position: relative;
     }
 
     .animated-typing {
-      font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
       font-weight: 600;
       color: var(--primary-light);
-      margin-bottom: 20px;
-      min-height: 40px;
+      margin-bottom: 16px;
+      min-height: 38px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -505,10 +456,10 @@
     }
 
     .hero-desc {
-      font-size: clamp(0.98rem, 2vw, 1.14rem);
+      font-size: clamp(0.95rem, 1.8vw, 1.12rem);
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 26px;
+      line-height: 1.68;
+      margin-bottom: 22px;
       max-width: 630px;
     }
 
@@ -520,49 +471,41 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 32px;
+      margin-bottom: 26px;
     }
 
     .f-tag {
-      font-size: clamp(0.76rem, 1.6vw, 0.85rem);
-      padding: 6px 14px;
+      font-size: 0.8rem;
+      padding: 5px 12px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       color: var(--text-muted);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: var(--transition-smooth);
-    }
-
-    .f-tag:hover {
-      border-color: var(--border-accent);
-      color: var(--text-main);
-      transform: translateY(-2px);
-      background: rgba(56, 189, 248, 0.08);
+      gap: 7px;
     }
 
     .f-tag i {
       color: var(--primary);
     }
 
-    /* Interactive Buttons */
+    /* Buttons Group: 2x2 Grid on Mobile for Clean Aesthetics */
     .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      max-width: 520px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: clamp(11px, 2vw, 14px) clamp(20px, 3vw, 28px);
+      gap: 8px;
+      padding: 12px 18px;
       border-radius: var(--radius-sm);
-      font-size: clamp(0.88rem, 1.8vw, 0.98rem);
+      font-size: 0.92rem;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
@@ -573,56 +516,38 @@
       white-space: nowrap;
     }
 
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-      transform: rotate(45deg) translateX(-100%);
-      transition: transform 0.6s ease;
-    }
-
-    .btn:hover::after {
-      transform: rotate(45deg) translateX(100%);
-    }
-
     .btn-primary {
       background: var(--gradient-main);
       color: #04101e;
-      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
     }
 
     .btn-book-call {
       background: var(--gradient-emerald);
       color: #ffffff;
-      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
     }
 
     .btn-book-call:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.55);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5);
     }
 
     .btn-ask {
       background: rgba(192, 132, 252, 0.12);
       color: #e9d5ff;
       border: 1px solid rgba(192, 132, 252, 0.35);
-      box-shadow: 0 8px 25px rgba(192, 132, 252, 0.15);
     }
 
     .btn-ask:hover {
-      background: rgba(192, 132, 252, 0.25);
+      background: rgba(192, 132, 252, 0.22);
       border-color: #c084fc;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(192, 132, 252, 0.35);
+      transform: translateY(-2px);
     }
 
     .btn-glass {
@@ -632,15 +557,14 @@
     }
 
     .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.1);
       border-color: var(--border-accent);
       transform: translateY(-2px);
     }
 
-    /* Terminal & Floating Cards */
+    /* Terminal & Quick Profile Visual */
     .hero-interactive-card {
       position: relative;
-      perspective: 1000px;
     }
 
     .code-terminal {
@@ -650,18 +574,11 @@
       box-shadow: var(--shadow-glow), var(--shadow-card);
       overflow: hidden;
       backdrop-filter: blur(20px);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      transform-style: preserve-3d;
-    }
-
-    .code-terminal:hover {
-      transform: translateY(-4px) rotateX(1deg);
-      box-shadow: 0 20px 45px rgba(56, 189, 248, 0.25);
     }
 
     .terminal-header {
-      background: rgba(15, 23, 42, 0.9);
-      padding: 12px 18px;
+      background: rgba(15, 23, 42, 0.95);
+      padding: 10px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -670,12 +587,12 @@
 
     .terminal-dots {
       display: flex;
-      gap: 8px;
+      gap: 7px;
     }
 
     .t-dot {
-      width: 11px;
-      height: 11px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
     }
 
@@ -685,15 +602,15 @@
 
     .terminal-file {
       font-family: var(--font-code);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
     .terminal-body {
-      padding: clamp(16px, 3vw, 24px);
+      padding: clamp(14px, 3vw, 22px);
       font-family: var(--font-code);
-      font-size: clamp(0.75rem, 1.5vw, 0.85rem);
-      line-height: 1.7;
+      font-size: clamp(0.72rem, 1.4vw, 0.82rem);
+      line-height: 1.65;
       overflow-x: auto;
     }
 
@@ -705,37 +622,37 @@
 
     .floating-chip {
       position: absolute;
-      background: rgba(15, 23, 42, 0.94);
+      background: rgba(15, 23, 42, 0.95);
       border: 1px solid var(--border-accent);
-      padding: 12px 18px;
+      padding: 10px 14px;
       border-radius: var(--radius-md);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       animation: floatWidget 6s ease-in-out infinite alternate;
       backdrop-filter: blur(14px);
       z-index: 2;
     }
 
-    .chip-lead { top: -20px; right: -15px; }
-    .chip-erps { bottom: -20px; left: -15px; animation-delay: -3s; }
+    .chip-lead { top: -16px; right: -12px; }
+    .chip-erps { bottom: -16px; left: -12px; animation-delay: -3s; }
 
     @keyframes floatWidget {
       0% { transform: translateY(0px); }
-      100% { transform: translateY(-10px); }
+      100% { transform: translateY(-8px); }
     }
 
     .chip-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
       background: rgba(56, 189, 248, 0.12);
       color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       flex-shrink: 0;
     }
 
@@ -746,71 +663,77 @@
 
     .chip-text strong {
       display: block;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       color: var(--text-main);
     }
 
     .chip-text span {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
     }
 
     /* Calling Window Banner */
     .calling-window-banner {
-      margin-top: clamp(28px, 5vw, 45px);
+      margin-top: clamp(24px, 4vw, 36px);
       background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(56, 189, 248, 0.08) 100%);
       border: 1px solid rgba(16, 185, 129, 0.35);
       border-radius: var(--radius-md);
-      padding: clamp(16px, 3vw, 24px) clamp(18px, 4vw, 30px);
+      padding: clamp(14px, 3vw, 20px) clamp(16px, 3vw, 24px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      gap: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(10px);
     }
 
     .banner-left {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
 
     .banner-icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: var(--radius-sm);
       background: rgba(16, 185, 129, 0.2);
       color: var(--success);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       flex-shrink: 0;
     }
 
     .banner-text h4 {
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .banner-text p {
       color: var(--text-muted);
-      font-size: clamp(0.85rem, 1.8vw, 0.92rem);
+      font-size: clamp(0.82rem, 1.6vw, 0.9rem);
     }
 
     .banner-text strong {
       color: #34d399;
     }
 
+    .banner-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
     /* ==========================================================================
-       METRICS BAR (DYNAMIC ANIMATED COUNTERS)
+       METRICS BAR
        ========================================================================== */
     .metrics-bar {
-      padding: 30px 0;
+      padding: 24px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: rgba(10, 15, 28, 0.45);
@@ -818,15 +741,15 @@
 
     .metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: clamp(14px, 3vw, 24px);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
     }
 
     .metric-item {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 16px 20px;
+      gap: 14px;
+      padding: 14px 16px;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -835,18 +758,17 @@
 
     .metric-item:hover {
       border-color: var(--border-accent);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px);
     }
 
     .metric-icon {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--primary);
       flex-shrink: 0;
     }
 
     .metric-val {
-      font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+      font-size: clamp(1.6rem, 3vw, 2rem);
       font-weight: 800;
       font-family: var(--font-code);
       color: var(--text-main);
@@ -854,7 +776,7 @@
     }
 
     .metric-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -864,13 +786,13 @@
        SECTION HEADERS
        ========================================================================== */
     section {
-      padding: clamp(50px, 8vw, 90px) 0;
+      padding: clamp(45px, 7vw, 80px) 0;
       border-bottom: 1px solid var(--border);
       position: relative;
     }
 
     .section-header {
-      margin-bottom: clamp(30px, 5vw, 48px);
+      margin-bottom: clamp(26px, 4vw, 42px);
     }
 
     .section-header.text-center {
@@ -878,32 +800,32 @@
     }
 
     .section-subtitle {
-      font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+      font-size: clamp(0.72rem, 1.6vw, 0.82rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--primary);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
+      gap: 7px;
+      margin-bottom: 8px;
     }
 
     .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-size: clamp(1.65rem, 3.8vw, 2.35rem);
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text-main);
-      margin-bottom: 12px;
-      line-height: 1.2;
+      margin-bottom: 10px;
+      line-height: 1.22;
     }
 
     .section-desc {
       color: var(--text-muted);
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
-      max-width: 680px;
+      font-size: clamp(0.9rem, 1.8vw, 1.02rem);
+      max-width: 660px;
       margin: 0 auto;
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     /* ==========================================================================
@@ -913,7 +835,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: clamp(20px, 4vw, 40px);
+      padding: clamp(18px, 3.5vw, 34px);
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow-card);
@@ -925,35 +847,29 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 5px;
+      width: 4px;
       height: 100%;
       background: var(--gradient-main);
-    }
-
-    .experience-card:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
     }
 
     .exp-header-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
     }
 
     .exp-title {
-      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
     }
 
     .exp-company {
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-size: clamp(0.92rem, 1.8vw, 1.05rem);
       color: var(--primary);
       font-weight: 600;
       display: inline-flex;
@@ -963,8 +879,8 @@
 
     .exp-period-badge {
       font-family: var(--font-code);
-      font-size: 0.85rem;
-      padding: 8px 16px;
+      font-size: 0.8rem;
+      padding: 6px 12px;
       background: rgba(129, 140, 248, 0.12);
       border: 1px solid rgba(129, 140, 248, 0.3);
       border-radius: var(--radius-sm);
@@ -973,38 +889,32 @@
     }
 
     .exp-summary-text {
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 26px;
+      line-height: 1.65;
+      margin-bottom: 22px;
     }
 
     .exp-bullet-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
     }
 
     .exp-bullet-item {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       align-items: flex-start;
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border);
-      padding: 16px;
+      padding: 14px;
       border-radius: var(--radius-sm);
       transition: var(--transition-smooth);
     }
 
-    .exp-bullet-item:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: var(--border-accent);
-      transform: translateX(4px);
-    }
-
     .exp-bullet-item i {
       color: var(--primary);
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       margin-top: 3px;
       flex-shrink: 0;
     }
@@ -1012,14 +922,14 @@
     .exp-bullet-item div strong {
       display: block;
       color: var(--text-main);
-      font-size: 0.95rem;
-      margin-bottom: 4px;
+      font-size: 0.92rem;
+      margin-bottom: 3px;
     }
 
     .exp-bullet-item div p {
       color: var(--text-muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
+      font-size: 0.85rem;
+      line-height: 1.48;
     }
 
     /* ==========================================================================
@@ -1027,47 +937,41 @@
        ========================================================================== */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: clamp(16px, 3vw, 24px);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: clamp(14px, 2.5vw, 20px);
     }
 
     .skill-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: clamp(20px, 3vw, 28px);
+      padding: clamp(18px, 2.5vw, 24px);
       transition: var(--transition-smooth);
-    }
-
-    .skill-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-glow);
     }
 
     .skill-head {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
     .skill-icon-wrap {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid var(--border-accent);
       color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       flex-shrink: 0;
     }
 
     .skill-head h3 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text-main);
     }
@@ -1075,25 +979,17 @@
     .skill-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .s-pill {
       font-family: var(--font-code);
-      font-size: 0.82rem;
-      padding: 6px 12px;
+      font-size: 0.78rem;
+      padding: 5px 10px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       border-radius: 6px;
       color: var(--text-muted);
-      transition: var(--transition-smooth);
-    }
-
-    .s-pill:hover {
-      background: rgba(56, 189, 248, 0.12);
-      border-color: var(--primary);
-      color: var(--primary-light);
-      transform: translateY(-2px);
     }
 
     .s-pill.glow {
@@ -1111,25 +1007,34 @@
     }
 
     /* ==========================================================================
-       PROJECTS SECTION (12+ ERP SHOWCASE & FILTER)
+       PROJECTS SECTION (HORIZONTAL SCROLL FILTER ON MOBILE)
        ========================================================================== */
     .erp-filter-controls {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: clamp(24px, 4vw, 36px);
+      gap: 8px;
+      margin-bottom: clamp(20px, 3.5vw, 32px);
+      overflow-x: auto;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .erp-filter-controls::-webkit-scrollbar {
+      display: none;
     }
 
     .filter-btn {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 8px 18px;
+      padding: 7px 16px;
       border-radius: 999px;
-      font-size: clamp(0.78rem, 1.8vw, 0.88rem);
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
       transition: var(--transition-smooth);
     }
 
@@ -1137,21 +1042,20 @@
       background: var(--gradient-main);
       color: #04101e;
       border-color: transparent;
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
-      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: clamp(18px, 3vw, 26px);
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: clamp(16px, 2.5vw, 24px);
     }
 
     .project-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: clamp(20px, 3vw, 28px);
+      padding: clamp(18px, 2.5vw, 24px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1161,7 +1065,7 @@
 
     .project-card:hover {
       border-color: var(--border-accent);
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-glow);
     }
 
@@ -1169,21 +1073,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .erp-number-badge {
       font-family: var(--font-code);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--primary);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     .erp-domain-pill {
-      font-size: 0.72rem;
-      padding: 3px 10px;
+      font-size: 0.7rem;
+      padding: 3px 9px;
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.25);
       border-radius: 999px;
@@ -1192,44 +1095,44 @@
     }
 
     .project-title {
-      font-size: clamp(1.15rem, 2vw, 1.3rem);
+      font-size: clamp(1.1rem, 1.8vw, 1.25rem);
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       line-height: 1.3;
     }
 
     .project-summary {
-      font-size: clamp(0.88rem, 1.8vw, 0.93rem);
+      font-size: clamp(0.85rem, 1.6vw, 0.92rem);
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 18px;
+      line-height: 1.55;
+      margin-bottom: 16px;
     }
 
     .problem-box {
       background: rgba(0, 0, 0, 0.4);
       border-left: 3px solid var(--accent);
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .problem-box-title {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       color: var(--accent);
       font-weight: 700;
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .problem-box p {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: #cbd5e1;
-      line-height: 1.5;
+      line-height: 1.48;
     }
 
     .project-tech-row {
@@ -1237,14 +1140,14 @@
       flex-wrap: wrap;
       gap: 6px;
       margin-top: auto;
-      padding-top: 14px;
+      padding-top: 12px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .ptag {
       font-family: var(--font-code);
-      font-size: 0.75rem;
-      padding: 4px 8px;
+      font-size: 0.72rem;
+      padding: 3px 7px;
       background: rgba(255, 255, 255, 0.04);
       border-radius: 4px;
       color: var(--text-dim);
@@ -1257,23 +1160,17 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: clamp(22px, 4vw, 36px);
+      padding: clamp(18px, 3.5vw, 30px);
       display: flex;
       align-items: center;
-      gap: clamp(18px, 4vw, 28px);
+      gap: clamp(14px, 3vw, 24px);
       flex-wrap: wrap;
       box-shadow: var(--shadow-card);
-      transition: var(--transition-smooth);
-    }
-
-    .edu-banner-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-4px);
     }
 
     .edu-badge-icon {
-      width: clamp(56px, 8vw, 72px);
-      height: clamp(56px, 8vw, 72px);
+      width: 58px;
+      height: 58px;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.12);
       border: 1px solid var(--border-accent);
@@ -1281,90 +1178,85 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+      font-size: 1.7rem;
       flex-shrink: 0;
     }
 
     .edu-details h3 {
-      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .edu-details h4 {
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
       color: var(--primary);
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .edu-details p {
       color: var(--text-muted);
-      font-size: clamp(0.88rem, 1.8vw, 0.95rem);
-      line-height: 1.6;
+      font-size: clamp(0.85rem, 1.6vw, 0.92rem);
+      line-height: 1.55;
       max-width: 850px;
     }
 
     /* ==========================================================================
-       CONTACT SECTION
+       CONTACT SECTION WITH VISHAL'S NUMBER: 7623937052
        ========================================================================== */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: clamp(20px, 4vw, 32px);
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: clamp(18px, 3vw, 28px);
     }
 
     .contact-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: clamp(24px, 4vw, 36px);
+      padding: clamp(20px, 3.5vw, 32px);
       box-shadow: var(--shadow-card);
-      transition: var(--transition-smooth);
-    }
-
-    .contact-card:hover {
-      border-color: var(--border-glow);
     }
 
     .contact-card h3 {
-      font-size: clamp(1.25rem, 2.5vw, 1.45rem);
+      font-size: clamp(1.2rem, 2.2vw, 1.4rem);
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .contact-card p.lead {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 24px;
+      font-size: 0.92rem;
+      margin-bottom: 20px;
     }
 
     .timing-card-box {
       background: rgba(56, 189, 248, 0.05);
       border: 1px solid var(--border-accent);
       border-radius: var(--radius-sm);
-      padding: 20px;
-      margin-bottom: 24px;
+      padding: 16px;
+      margin-bottom: 20px;
     }
 
     .timing-card-box h4 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--primary);
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .time-slot-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0;
+      padding: 8px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      gap: 12px;
+      gap: 10px;
     }
 
     .time-slot-row:last-child {
@@ -1376,26 +1268,26 @@
       align-items: center;
       gap: 8px;
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
     }
 
     .time-slot-row strong {
       font-family: var(--font-code);
       color: var(--text-main);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       white-space: nowrap;
     }
 
     .direct-links-col {
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
 
     .d-link {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 14px 18px;
+      gap: 14px;
+      padding: 12px 16px;
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -1407,32 +1299,32 @@
     .d-link:hover {
       border-color: var(--primary);
       background: rgba(56, 189, 248, 0.08);
-      transform: translateX(4px);
+      transform: translateX(3px);
     }
 
     .d-link i {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--primary);
-      width: 26px;
+      width: 24px;
       text-align: center;
       flex-shrink: 0;
     }
 
     .d-link-info span {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
 
     .d-link-info strong {
-      font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-      word-break: break-word;
+      font-size: 0.92rem;
+      word-break: break-all;
     }
 
     /* ==========================================================================
-       MODALS: BOOK A CALL (FULL RESPONSIVE & ANIMATED)
+       MODAL: BOOK A CALL (MOBILE BOTTOM SHEET & DESKTOP CENTER DIALOG)
        ========================================================================== */
     .modal-backdrop {
       position: fixed;
@@ -1447,12 +1339,12 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: clamp(12px, 3vw, 24px);
+      padding: 16px;
     }
 
     .modal-backdrop.active {
       display: flex;
-      animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: modalFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @keyframes modalFadeIn {
@@ -1465,11 +1357,11 @@
       border: 1px solid var(--border-glow);
       border-radius: var(--radius-md);
       width: 100%;
-      max-width: 560px;
+      max-width: 520px;
       box-shadow: var(--shadow-modal), var(--shadow-glow);
       overflow: hidden;
       position: relative;
-      max-height: 92vh;
+      max-height: 90vh;
       display: flex;
       flex-direction: column;
     }
@@ -1477,7 +1369,7 @@
     .modal-header {
       background: rgba(15, 23, 42, 0.98);
       border-bottom: 1px solid var(--border);
-      padding: 18px 24px;
+      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1485,23 +1377,22 @@
     }
 
     .modal-header h3 {
-      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-main);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
     }
 
     .modal-close-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       cursor: pointer;
       line-height: 1;
       padding: 4px;
-      transition: color 0.2s;
     }
 
     .modal-close-btn:hover {
@@ -1509,21 +1400,21 @@
     }
 
     .modal-body {
-      padding: clamp(18px, 4vw, 26px);
+      padding: 20px;
       overflow-y: auto;
       flex: 1;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .form-label {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .form-label span.req {
@@ -1532,14 +1423,13 @@
 
     .form-input, .form-select {
       width: 100%;
-      padding: 12px 16px;
+      padding: 11px 14px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       color: var(--text-main);
       font-family: inherit;
-      font-size: 0.95rem;
-      transition: var(--transition-smooth);
+      font-size: 0.92rem;
     }
 
     .form-input:focus, .form-select:focus {
@@ -1556,47 +1446,42 @@
 
     .slot-selector-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-bottom: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
     }
 
     .slot-card {
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 14px;
+      padding: 12px 10px;
       cursor: pointer;
       background: rgba(255, 255, 255, 0.02);
       transition: var(--transition-smooth);
       text-align: center;
     }
 
-    .slot-card:hover {
-      border-color: var(--border-accent);
-      background: rgba(56, 189, 248, 0.04);
-    }
-
     .slot-card.active {
       border-color: var(--success);
       background: rgba(16, 185, 129, 0.12);
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
     }
 
     .slot-card i {
-      font-size: 1.25rem;
-      margin-bottom: 6px;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
       display: block;
       color: var(--success);
     }
 
     .slot-card strong {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-main);
     }
 
     .slot-card span {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
     }
 
@@ -1605,49 +1490,45 @@
        ========================================================================== */
     .floating-ask-trigger {
       position: fixed;
-      bottom: clamp(20px, 4vw, 28px);
-      right: clamp(20px, 4vw, 28px);
+      bottom: 24px;
+      right: 24px;
       z-index: 998;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 13px 22px;
+      gap: 9px;
+      padding: 12px 20px;
       background: var(--gradient-main);
       color: #04101e;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.95rem;
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.45);
+      font-size: 0.92rem;
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.45);
       cursor: pointer;
       border: none;
       transition: var(--transition-smooth);
     }
 
     .floating-ask-trigger:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.6);
-    }
-
-    .floating-ask-trigger i {
-      font-size: 1.2rem;
+      transform: translateY(-3px) scale(1.03);
     }
 
     .ask-chat-window {
       position: fixed;
-      bottom: clamp(85px, 12vw, 95px);
-      right: clamp(16px, 4vw, 28px);
-      width: min(390px, calc(100vw - 32px));
-      height: min(530px, calc(100vh - 120px));
+      bottom: 85px;
+      right: 24px;
+      width: min(380px, calc(100vw - 32px));
+      height: min(510px, calc(100vh - 110px));
       background: rgba(15, 23, 42, 0.98);
       border: 1px solid var(--border-glow);
       border-radius: var(--radius-md);
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), var(--shadow-glow);
       backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       z-index: 999;
       display: none;
       flex-direction: column;
       overflow: hidden;
-      animation: chatPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: chatPop 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .ask-chat-window.open {
@@ -1655,13 +1536,13 @@
     }
 
     @keyframes chatPop {
-      from { opacity: 0; transform: translateY(20px) scale(0.95); }
+      from { opacity: 0; transform: translateY(18px) scale(0.96); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .chat-header {
       background: rgba(15, 23, 42, 0.95);
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -1676,8 +1557,8 @@
     }
 
     .chat-avatar {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: var(--gradient-main);
       color: #04101e;
@@ -1685,18 +1566,18 @@
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     .chat-header-info h4 {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 2px;
     }
 
     .chat-header-info span {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: #34d399;
       display: flex;
       align-items: center;
@@ -1723,19 +1604,19 @@
 
     .chat-body {
       flex: 1;
-      padding: 16px;
+      padding: 14px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .chat-bubble {
       max-width: 88%;
-      padding: 12px 16px;
+      padding: 10px 14px;
       border-radius: 14px;
-      font-size: 0.88rem;
-      line-height: 1.5;
+      font-size: 0.85rem;
+      line-height: 1.48;
       word-break: break-word;
     }
 
@@ -1766,22 +1647,21 @@
       background: rgba(56, 189, 248, 0.08);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--primary-light);
-      padding: 8px 12px;
+      padding: 7px 11px;
       border-radius: var(--radius-sm);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       text-align: left;
       cursor: pointer;
       transition: var(--transition-smooth);
     }
 
     .suggestion-btn:hover {
-      background: rgba(56, 189, 248, 0.18);
+      background: rgba(56, 189, 248, 0.16);
       border-color: var(--primary);
-      transform: translateX(3px);
     }
 
     .chat-footer {
-      padding: 12px 16px;
+      padding: 10px 14px;
       border-top: 1px solid var(--border);
       display: flex;
       gap: 8px;
@@ -1794,9 +1674,9 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 10px 14px;
+      padding: 9px 12px;
       color: var(--text-main);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       outline: none;
     }
 
@@ -1808,25 +1688,19 @@
       background: var(--primary);
       color: #04101e;
       border: none;
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: var(--radius-sm);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
-      transition: var(--transition-smooth);
+      font-size: 0.95rem;
       flex-shrink: 0;
     }
 
-    .chat-send-btn:hover {
-      background: #7dd3fc;
-      transform: scale(1.05);
-    }
-
     /* ==========================================================================
-       MOBILE STICKY QUICK-BAR (FOR ONE-THUMB TAP CONVERSIONS)
+       MOBILE STICKY QUICK-BAR (FOR 1-THUMB TAP CALLS & BOOKING)
        ========================================================================== */
     .mobile-bottom-bar {
       display: none;
@@ -1834,19 +1708,21 @@
       bottom: 0;
       left: 0;
       width: 100vw;
-      background: rgba(10, 16, 31, 0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(8, 13, 25, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-top: 1px solid var(--border-glow);
       z-index: 997;
-      padding: 10px 16px;
-      box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.6);
+      padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.7);
     }
 
     .mobile-bar-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
     }
 
     .mobile-bar-btn {
@@ -1855,21 +1731,20 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      padding: 8px 4px;
+      gap: 3px;
+      padding: 7px 4px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       color: var(--text-main);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      transition: var(--transition-smooth);
     }
 
     .mobile-bar-btn i {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--primary);
     }
 
@@ -1877,42 +1752,40 @@
       background: var(--gradient-emerald);
       color: #ffffff;
       border: none;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
     }
 
     .mobile-bar-btn.primary-highlight i {
       color: #ffffff;
     }
 
-    /* ==========================================================================
-       FOOTER
-       ========================================================================== */
+    /* Footer */
     footer {
-      padding: clamp(35px, 6vw, 55px) 0 clamp(75px, 10vw, 45px); /* extra bottom space on mobile for bar */
+      padding: 35px 0 calc(45px + env(safe-area-inset-bottom, 0px));
       text-align: center;
       color: var(--text-dim);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       background: rgba(5, 8, 15, 0.85);
     }
 
     footer p {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+    }
+
+    .repo-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .repo-link:hover {
+      text-decoration: underline;
     }
 
     /* ==========================================================================
-       MEDIA QUERIES (COMPREHENSIVE RESPONSIVENESS)
+       MOBILE ADAPTATIONS (< 860px)
        ========================================================================== */
-    @media (max-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-      .hero-interactive-card {
-        max-width: 600px;
-        margin: 0 auto;
-        width: 100%;
-      }
-    }
-
     @media (max-width: 860px) {
       .nav-links {
         display: none;
@@ -1920,11 +1793,14 @@
       .mobile-menu-toggle {
         display: flex;
       }
-      .hero-title {
-        font-size: 2.6rem;
-      }
-      .slot-selector-grid {
+      .hero-grid {
         grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .hero-interactive-card {
+        max-width: 520px;
+        margin: 0 auto;
+        width: 100%;
       }
       .calling-window-banner {
         flex-direction: column;
@@ -1932,12 +1808,14 @@
       }
       .banner-actions {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
       }
       .banner-actions .btn {
         width: 100%;
+        padding: 10px;
+        font-size: 0.85rem;
       }
     }
 
@@ -1945,42 +1823,80 @@
       .mobile-bottom-bar {
         display: block;
       }
+      footer {
+        padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px));
+      }
       .floating-ask-trigger {
-        bottom: 74px;
-        right: 16px;
-        padding: 10px 18px;
-        font-size: 0.88rem;
+        bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+        right: 14px;
+        padding: 9px 16px;
+        font-size: 0.82rem;
       }
       .ask-chat-window {
-        bottom: 135px;
-        right: 14px;
-        width: calc(100vw - 28px);
-        height: 65vh;
+        bottom: calc(125px + env(safe-area-inset-bottom, 0px));
+        right: 12px;
+        width: calc(100vw - 24px);
+        height: 60vh;
       }
       .floating-chip {
-        display: none; /* Hide floating corner chips on small phones to prevent overflow */
-      }
-      .btn-group {
-        flex-direction: column;
-        width: 100%;
-      }
-      .btn-group .btn {
-        width: 100%;
+        display: none; /* Hide hero floating badges on small screens to prevent layout bugs */
       }
       .live-call-chip {
-        display: none; /* In navbar, hide on small mobile to give room to brand & toggle */
+        display: none; /* Hide mini chip in navbar to prevent clutter */
+      }
+      .btn-group {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .btn-group .btn {
+        padding: 11px 10px;
+        font-size: 0.82rem;
+        gap: 6px;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .metric-item {
+        padding: 10px 12px;
+        gap: 10px;
+      }
+      .metric-icon {
+        font-size: 1.5rem;
+      }
+      .banner-actions {
+        grid-template-columns: 1fr;
+      }
+      /* Mobile Bottom Sheet Modal */
+      .modal-backdrop {
+        align-items: flex-end;
+        padding: 0;
+      }
+      .modal-window {
+        border-radius: 20px 20px 0 0;
+        max-height: 86vh;
+        width: 100%;
+        border-bottom: none;
+      }
+      .modal-header {
+        padding: 14px 18px;
+      }
+      .modal-body {
+        padding: 16px 18px calc(16px + env(safe-area-inset-bottom, 0px));
+      }
+      .slot-selector-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 480px) {
-      .hero-title {
-        font-size: 2.15rem;
-      }
-      .animated-typing {
-        font-size: 1.15rem;
-      }
-      .projects-grid {
+    @media (max-width: 400px) {
+      .btn-group {
         grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 1.95rem;
       }
       .metrics-grid {
         grid-template-columns: 1fr 1fr;
@@ -2019,13 +1935,13 @@
 
       <!-- Right Nav Actions -->
       <div class="nav-right-actions">
-        <!-- Live Call Window Chip -->
+        <!-- Live Call Window Chip (Desktop/Tablet) -->
         <div class="live-call-chip" onclick="openBookModal()" title="Click to Book a Call with Vishal">
           <span class="pulse-dot"></span>
           <span id="navLiveClockText">Calls: 9 AM &amp; After 6 PM</span>
         </div>
 
-        <button class="btn btn-book-call" onclick="openBookModal()" style="padding: 8px 18px; font-size: 0.85rem;">
+        <button class="btn btn-book-call" onclick="openBookModal()" style="padding: 7px 14px; font-size: 0.82rem;">
           <i class="fa-solid fa-calendar-plus"></i> Book Call
         </button>
 
@@ -2068,20 +1984,25 @@
       </li>
       <li>
         <a href="#contact" class="mobile-drawer-link" onclick="toggleMobileDrawer()">
-          <i class="fa-solid fa-phone"></i> Contact &amp; Schedule
+          <i class="fa-solid fa-phone"></i> Contact (7623937052)
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Vishal-Bhaliya/VB.git" target="_blank" class="mobile-drawer-link">
+          <i class="fa-brands fa-github"></i> GitHub: Vishal-Bhaliya/VB
         </a>
       </li>
     </ul>
 
-    <div style="display: grid; gap: 12px; margin-top: auto;">
+    <div style="display: grid; gap: 10px; margin-top: auto;">
       <button class="btn btn-book-call" onclick="toggleMobileDrawer(); openBookModal();" style="width: 100%;">
         <i class="fa-solid fa-calendar-check"></i> Book Call Slot
       </button>
       <button class="btn btn-ask" onclick="toggleMobileDrawer(); toggleAskChat();" style="width: 100%;">
         <i class="fa-solid fa-comments"></i> Ask Vishal (Q&amp;A)
       </button>
-      <a href="tel:+919876543210" class="btn btn-glass" style="width: 100%;">
-        <i class="fa-solid fa-phone"></i> Direct Phone Call
+      <a href="tel:+917623937052" class="btn btn-glass" style="width: 100%;">
+        <i class="fa-solid fa-phone"></i> Call +91 76239 37052
       </a>
     </div>
   </div>
@@ -2109,7 +2030,7 @@
           </div>
 
           <p class="hero-desc">
-            With <strong>5+ years of software engineering excellence at Ramanshee Infotech</strong>, I architect resilient enterprise systems, develop <strong>12+ turnkey ERP solutions</strong>, and solve complex business problems. Proficient across C#, .NET Core, SQL Server, VistaDB, Oracle, legacy desktop modernizations, and state-of-the-art AI-augmented engineering workflows.
+            With <strong>5+ years of software engineering excellence at Ramanshee Infotech</strong>, I architect resilient enterprise systems, develop <strong>12+ turnkey ERP solutions</strong>, and solve complex business problems. Proficient across C#, .NET Core, SQL Server, VistaDB, Oracle, legacy desktop modernizations, and state-of-the-art AI-augmented workflows.
           </p>
 
           <div class="hero-feature-tags">
@@ -2120,26 +2041,26 @@
             <span class="f-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Accelerated</span>
           </div>
 
-          <!-- Hero Action Buttons including Book Call & Ask Option -->
+          <!-- Hero Action Buttons: 2x2 Clean Mobile Grid -->
           <div class="btn-group">
             <button class="btn btn-book-call" onclick="openBookModal()">
               <i class="fa-solid fa-calendar-check"></i> Book a Call
             </button>
+            <a href="tel:+917623937052" class="btn btn-glass">
+              <i class="fa-solid fa-phone"></i> Direct Call
+            </a>
             <button class="btn btn-ask" onclick="toggleAskChat()">
-              <i class="fa-solid fa-comments"></i> Ask Vishal (Q&amp;A)
+              <i class="fa-solid fa-comments"></i> Ask Vishal
             </button>
             <a href="#projects" class="btn btn-primary">
               <i class="fa-solid fa-layer-group"></i> 12+ ERPs
-            </a>
-            <a href="#contact" class="btn btn-glass">
-              <i class="fa-solid fa-phone"></i> Call Direct
             </a>
           </div>
 
         </div>
 
         <!-- Hero Right: Interactive Code Terminal & Badges -->
-        <div class="hero-interactive-card reveal-right delay-2">
+        <div class="hero-interactive-card reveal-right">
           <div class="code-terminal">
             <div class="terminal-header">
               <div class="terminal-dots">
@@ -2148,7 +2069,7 @@
                 <span class="t-dot green"></span>
               </div>
               <div class="terminal-file">VishalBhaliya_TechLead.cs</div>
-              <div style="font-size: 0.75rem; color: #10b981;"><i class="fa-solid fa-bolt"></i> Live Production</div>
+              <div style="font-size: 0.72rem; color: #10b981;"><i class="fa-solid fa-bolt"></i> Live Production</div>
             </div>
 
             <div class="terminal-body">
@@ -2159,6 +2080,7 @@
     <span class="kwd">public int</span> Experience => <span class="num">5</span>; <span class="comment">// 5+ Years</span>
     <span class="kwd">public int</span> TeamLeadYears => <span class="num">2</span>;
     <span class="kwd">public int</span> ShippedERPs => <span class="num">12</span>;
+    <span class="kwd">public string</span> Phone => <span class="str">"+91 76239 37052"</span>;
     <span class="kwd">public string</span> Degree => <span class="str">"B.E. in Information Technology"</span>;
 
     <span class="kwd">public string</span>[] CoreTech => <span class="kwd">new</span>[] {
@@ -2167,17 +2089,13 @@
         <span class="str">"Oracle"</span>, <span class="str">"WinForms/Desktop"</span>
     };
 
-    <span class="kwd">public string</span>[] AIEngines => <span class="kwd">new</span>[] {
-        <span class="str">"Antigravity"</span>, <span class="str">"Claude"</span>, <span class="str">"DeepSeek"</span>, <span class="str">"ChatGPT"</span>
-    };
-
     <span class="kwd">public string</span> PreferredCallSlot() =>
         <span class="str">"Morning (9:00 AM) &amp; Evening (After 6:00 PM IST)"</span>;
 }</code></pre>
             </div>
           </div>
 
-          <!-- Floating Badges -->
+          <!-- Floating Badges (Visible on tablet/desktop) -->
           <div class="floating-chip chip-lead">
             <div class="chip-icon green"><i class="fa-solid fa-people-roof"></i></div>
             <div class="chip-text">
@@ -2212,8 +2130,8 @@
           <button class="btn btn-book-call" onclick="openBookModal()">
             <i class="fa-solid fa-calendar-check"></i> Book Your Slot
           </button>
-          <a href="tel:+919876543210" class="btn btn-glass">
-            <i class="fa-solid fa-phone"></i> Call Direct
+          <a href="tel:+917623937052" class="btn btn-glass">
+            <i class="fa-solid fa-phone"></i> Call +91 76239 37052
           </a>
         </div>
       </div>
@@ -2225,32 +2143,32 @@
   <section class="metrics-bar">
     <div class="container">
       <div class="metrics-grid">
-        <div class="metric-item reveal delay-1">
+        <div class="metric-item reveal">
           <div class="metric-icon"><i class="fa-solid fa-calendar-days"></i></div>
           <div>
             <div class="metric-val counter" data-target="5">0</div>
-            <div class="metric-label">Years Experience</div>
+            <div class="metric-label">Years Exp</div>
           </div>
         </div>
-        <div class="metric-item reveal delay-2">
+        <div class="metric-item reveal">
           <div class="metric-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
           <div>
             <div class="metric-val counter" data-target="12">0</div>
-            <div class="metric-label">ERP Solutions Built</div>
+            <div class="metric-label">ERPs Delivered</div>
           </div>
         </div>
-        <div class="metric-item reveal delay-3">
+        <div class="metric-item reveal">
           <div class="metric-icon"><i class="fa-solid fa-crown"></i></div>
           <div>
             <div class="metric-val counter" data-target="2">0</div>
-            <div class="metric-label">Years as Team Leader</div>
+            <div class="metric-label">Yrs Team Lead</div>
           </div>
         </div>
-        <div class="metric-item reveal delay-4">
+        <div class="metric-item reveal">
           <div class="metric-icon"><i class="fa-solid fa-database"></i></div>
           <div>
             <div class="metric-val counter" data-target="4">0</div>
-            <div class="metric-label">Databases Mastered</div>
+            <div class="metric-label">Databases</div>
           </div>
         </div>
       </div>
@@ -2280,7 +2198,7 @@
         </p>
 
         <div class="exp-bullet-grid">
-          <div class="exp-bullet-item reveal delay-1">
+          <div class="exp-bullet-item reveal">
             <i class="fa-solid fa-users-gear"></i>
             <div>
               <strong>2+ Years Team Leadership</strong>
@@ -2288,7 +2206,7 @@
             </div>
           </div>
 
-          <div class="exp-bullet-item reveal delay-2">
+          <div class="exp-bullet-item reveal">
             <i class="fa-solid fa-server"></i>
             <div>
               <strong>Backend &amp; RESTful APIs</strong>
@@ -2296,7 +2214,7 @@
             </div>
           </div>
 
-          <div class="exp-bullet-item reveal delay-1">
+          <div class="exp-bullet-item reveal">
             <i class="fa-solid fa-desktop"></i>
             <div>
               <strong>Desktop Apps, Web Forms &amp; Console</strong>
@@ -2304,7 +2222,7 @@
             </div>
           </div>
 
-          <div class="exp-bullet-item reveal delay-2">
+          <div class="exp-bullet-item reveal">
             <i class="fa-solid fa-database"></i>
             <div>
               <strong>Multi-Database Mastery</strong>
@@ -2312,7 +2230,7 @@
             </div>
           </div>
 
-          <div class="exp-bullet-item reveal delay-1">
+          <div class="exp-bullet-item reveal">
             <i class="fa-solid fa-bolt"></i>
             <div>
               <strong>Complex Problem Solving</strong>
@@ -2320,7 +2238,7 @@
             </div>
           </div>
 
-          <div class="exp-bullet-item reveal delay-2">
+          <div class="exp-bullet-item reveal">
             <i class="fa-solid fa-wand-magic-sparkles"></i>
             <div>
               <strong>AI-Powered Engineering</strong>
@@ -2343,7 +2261,7 @@
 
       <div class="skills-grid">
         
-        <div class="skill-card reveal delay-1">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <div class="skill-icon-wrap"><i class="fa-brands fa-microsoft"></i></div>
             <h3>.NET &amp; C# Architecture</h3>
@@ -2359,7 +2277,7 @@
           </div>
         </div>
 
-        <div class="skill-card reveal delay-2">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <div class="skill-icon-wrap"><i class="fa-brands fa-js"></i></div>
             <h3>Web &amp; Frontend</h3>
@@ -2375,7 +2293,7 @@
           </div>
         </div>
 
-        <div class="skill-card reveal delay-3">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <div class="skill-icon-wrap"><i class="fa-solid fa-database"></i></div>
             <h3>Databases &amp; Storage</h3>
@@ -2390,7 +2308,7 @@
           </div>
         </div>
 
-        <div class="skill-card reveal delay-1">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <div class="skill-icon-wrap"><i class="fa-solid fa-desktop"></i></div>
             <h3>Application Types</h3>
@@ -2404,7 +2322,7 @@
           </div>
         </div>
 
-        <div class="skill-card reveal delay-2">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <div class="skill-icon-wrap" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
             <h3>AI Tools for Development</h3>
@@ -2419,7 +2337,7 @@
           </div>
         </div>
 
-        <div class="skill-card reveal delay-3">
+        <div class="skill-card reveal">
           <div class="skill-head">
             <div class="skill-icon-wrap"><i class="fa-solid fa-people-roof"></i></div>
             <h3>Leadership &amp; Delivery</h3>
@@ -2446,7 +2364,7 @@
         <p class="section-desc">Delivering turnkey business engines for manufacturing, logistics, accounting, and retail networks while untangling deep architectural bottlenecks.</p>
       </div>
 
-      <!-- Filter Controls -->
+      <!-- Filter Controls (Horizontal Scrollable on Mobile) -->
       <div class="erp-filter-controls reveal">
         <button class="filter-btn active" onclick="filterErps('all', this)">All ERPs (12+)</button>
         <button class="filter-btn" onclick="filterErps('mfg', this)">Manufacturing &amp; BOM</button>
@@ -2458,7 +2376,7 @@
       <div class="projects-grid" id="projectsGrid">
         
         <!-- Project 1 -->
-        <div class="project-card reveal delay-1" data-cat="mfg">
+        <div class="project-card reveal" data-cat="mfg">
           <div class="project-top-row">
             <span class="erp-number-badge">ERP #01</span>
             <span class="erp-domain-pill">Manufacturing</span>
@@ -2480,7 +2398,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card reveal delay-2" data-cat="retail">
+        <div class="project-card reveal" data-cat="retail">
           <div class="project-top-row">
             <span class="erp-number-badge">ERP #02</span>
             <span class="erp-domain-pill">Retail POS</span>
@@ -2502,7 +2420,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card reveal delay-3" data-cat="finance">
+        <div class="project-card reveal" data-cat="finance">
           <div class="project-top-row">
             <span class="erp-number-badge">ERP #03</span>
             <span class="erp-domain-pill">Accounting &amp; Tax</span>
@@ -2524,7 +2442,7 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="project-card reveal delay-1" data-cat="custom">
+        <div class="project-card reveal" data-cat="custom">
           <div class="project-top-row">
             <span class="erp-number-badge">ERP #04</span>
             <span class="erp-domain-pill">HRMS &amp; Hardware</span>
@@ -2546,7 +2464,7 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="project-card reveal delay-2" data-cat="custom">
+        <div class="project-card reveal" data-cat="custom">
           <div class="project-top-row">
             <span class="erp-number-badge">ERP #05</span>
             <span class="erp-domain-pill">Legacy Modernization</span>
@@ -2568,7 +2486,7 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="project-card reveal delay-3" data-cat="mfg">
+        <div class="project-card reveal" data-cat="mfg">
           <div class="project-top-row">
             <span class="erp-number-badge">ERP #06</span>
             <span class="erp-domain-pill">Textile Industry</span>
@@ -2614,7 +2532,7 @@
     </div>
   </section>
 
-  <!-- Contact & Call Schedule Section -->
+  <!-- Contact & Call Schedule Section with Vishal's Real Phone Number: 7623937052 -->
   <section id="contact">
     <div class="container">
       <div class="section-header text-center reveal">
@@ -2645,13 +2563,13 @@
             </div>
           </div>
 
-          <div style="margin-bottom: 24px;">
+          <div style="margin-bottom: 20px;">
             <button class="btn btn-book-call" onclick="openBookModal()" style="width: 100%; justify-content: center;">
               <i class="fa-solid fa-calendar-check"></i> Book Call Slot Online
             </button>
           </div>
 
-          <p style="font-size: 0.85rem; color: var(--text-dim);">
+          <p style="font-size: 0.82rem; color: var(--text-dim);">
             * Urgent inquiries outside these hours can be coordinated via direct WhatsApp message or email.
           </p>
         </div>
@@ -2661,19 +2579,19 @@
           <p class="lead">Reach out directly through any of the channels below:</p>
 
           <div class="direct-links-col">
-            <a href="tel:+919876543210" class="d-link">
+            <a href="tel:+917623937052" class="d-link">
               <i class="fa-solid fa-phone"></i>
               <div class="d-link-info">
                 <span>Direct Phone Call</span>
-                <strong>Call Vishal (Morning 9 AM / After 6 PM)</strong>
+                <strong>+91 76239 37052 (Tap to Call)</strong>
               </div>
             </a>
 
-            <a href="https://wa.me/919876543210?text=Hi%20Vishal,%20I%20would%20like%20to%20connect%20regarding%20an%20opportunity." target="_blank" class="d-link">
+            <a href="https://wa.me/917623937052?text=Hi%20Vishal,%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you." target="_blank" class="d-link">
               <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
               <div class="d-link-info">
                 <span>WhatsApp Messaging</span>
-                <strong>Send Direct WhatsApp Message</strong>
+                <strong>+91 76239 37052 (Direct Chat)</strong>
               </div>
             </a>
 
@@ -2682,6 +2600,14 @@
               <div class="d-link-info">
                 <span>Email Address</span>
                 <strong>vishalbhaliya.dev@gmail.com</strong>
+              </div>
+            </a>
+
+            <a href="https://github.com/Vishal-Bhaliya/VB.git" target="_blank" class="d-link">
+              <i class="fa-brands fa-github" style="color: #c084fc;"></i>
+              <div class="d-link-info">
+                <span>GitHub Repository</span>
+                <strong>github.com/Vishal-Bhaliya/VB</strong>
               </div>
             </a>
 
@@ -2702,7 +2628,7 @@
   <!-- Mobile Sticky Quick Bar (One-Thumb Access on Phones) -->
   <div class="mobile-bottom-bar">
     <div class="mobile-bar-actions">
-      <a href="tel:+919876543210" class="mobile-bar-btn">
+      <a href="tel:+917623937052" class="mobile-bar-btn">
         <i class="fa-solid fa-phone"></i>
         <span>Call</span>
       </a>
@@ -2714,7 +2640,7 @@
         <i class="fa-solid fa-comments"></i>
         <span>Ask Q&amp;A</span>
       </button>
-      <a href="https://wa.me/919876543210?text=Hi%20Vishal,%20I%20would%20like%20to%20connect." target="_blank" class="mobile-bar-btn">
+      <a href="https://wa.me/917623937052?text=Hi%20Vishal,%20I%20would%20like%20to%20connect%20with%20you." target="_blank" class="mobile-bar-btn">
         <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
         <span>WhatsApp</span>
       </a>
@@ -2726,11 +2652,16 @@
     <div class="container">
       <p>&copy; 2026 Vishal Bhaliya. All rights reserved.</p>
       <p>Full Stack Developer &bull; 5+ Years at Ramanshee Infotech &bull; 12+ ERP Solutions Delivered</p>
+      <p style="margin-top: 6px;">
+        <a href="https://github.com/Vishal-Bhaliya/VB.git" target="_blank" class="repo-link">
+          <i class="fa-brands fa-github"></i> GitHub: Vishal-Bhaliya/VB
+        </a>
+      </p>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       MODAL: BOOK A CALL
+       MODAL: BOOK A CALL (OPTIMIZED FOR DESKTOP & MOBILE BOTTOM-SHEET)
        ========================================================================== -->
   <div class="modal-backdrop" id="bookCallModal" onclick="closeBookModal(event)">
     <div class="modal-window" onclick="event.stopPropagation()">
@@ -2740,8 +2671,8 @@
       </div>
 
       <div class="modal-body">
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
-          Select your preferred calling window and provide your contact info. A calendar reminder and WhatsApp confirmation will be prepared immediately!
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+          Select your slot. A WhatsApp confirmation will be sent directly to <strong>+91 76239 37052</strong>!
         </p>
 
         <!-- Slot Picker -->
@@ -2769,7 +2700,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="bookPhone">Phone / WhatsApp Number <span class="req">*</span></label>
+            <label class="form-label" for="bookPhone">Your Phone / WhatsApp Number <span class="req">*</span></label>
             <input type="tel" class="form-input" id="bookPhone" placeholder="+91 98765 43210" required>
           </div>
 
@@ -2789,7 +2720,7 @@
             </select>
           </div>
 
-          <button type="submit" class="btn btn-book-call" style="width: 100%; justify-content: center;">
+          <button type="submit" class="btn btn-book-call" style="width: 100%; justify-content: center; padding: 13px;">
             <i class="fa-solid fa-check-circle"></i> Confirm &amp; Send Booking
           </button>
         </form>
@@ -2819,7 +2750,7 @@
 
     <div class="chat-body" id="chatBody">
       <div class="chat-bubble bot">
-        Hi! I'm Vishal's interactive portfolio assistant. What would you like to know about his 5+ years of experience, 12+ ERP solutions, or call schedule?
+        Hi! I'm Vishal's interactive assistant. Ask me about his 5+ years at Ramanshee Infotech, 12+ ERP solutions, tech stack, or call schedule (+91 76239 37052)!
       </div>
 
       <div class="chat-suggestions" id="chatSuggestions">
@@ -2847,7 +2778,7 @@
   </div>
 
   <!-- ==========================================================================
-       SCRIPTS: ANIMATIONS, CANVAS, INTERACTIVITY & RESPONSIVENESS
+       SCRIPTS
        ========================================================================== -->
   <script>
     // 1. Dynamic Particle Network Background on HTML5 Canvas
@@ -2866,9 +2797,9 @@
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.7;
-        this.speedY = (Math.random() - 0.5) * 0.7;
+        this.size = Math.random() * 2 + 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.6;
+        this.speedY = (Math.random() - 0.5) * 0.6;
         this.color = Math.random() > 0.5 ? '#38bdf8' : '#818cf8';
       }
       update() {
@@ -2890,8 +2821,8 @@
 
     function initParticles() {
       particlesArray = [];
-      const numberOfParticles = Math.floor((canvas.width * canvas.height) / 22000);
-      for (let i = 0; i < Math.min(numberOfParticles, 55); i++) {
+      const numberOfParticles = Math.floor((canvas.width * canvas.height) / 24000);
+      for (let i = 0; i < Math.min(numberOfParticles, 45); i++) {
         particlesArray.push(new Particle());
       }
     }
@@ -2909,10 +2840,10 @@
           const dy = particlesArray[i].y - particlesArray[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 110) {
+          if (distance < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 - distance / 730})`;
-            ctx.lineWidth = 0.6;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.14 - distance / 720})`;
+            ctx.lineWidth = 0.5;
             ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
             ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
             ctx.stroke();
@@ -2946,7 +2877,7 @@
     // 3. Navbar Background Blur on Scroll
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
@@ -2963,8 +2894,8 @@
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px"
+      threshold: 0.1,
+      rootMargin: "0px 0px -30px 0px"
     });
     revealElements.forEach(el => observer.observe(el));
 
@@ -2978,7 +2909,7 @@
           counterElements.forEach(counter => {
             const target = +counter.getAttribute('data-target');
             let count = 0;
-            const duration = 1500;
+            const duration = 1400;
             const stepTime = Math.max(Math.floor(duration / target), 30);
             
             const timer = setInterval(() => {
@@ -2992,7 +2923,7 @@
           });
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.2 });
     
     const metricsBar = document.querySelector('.metrics-bar');
     if (metricsBar) counterObserver.observe(metricsBar);
@@ -3020,7 +2951,7 @@
         charIdx++;
       }
 
-      let speed = isDeleting ? 35 : 75;
+      let speed = isDeleting ? 30 : 70;
 
       if (!isDeleting && charIdx === currentRole.length) {
         speed = 2000;
@@ -3028,7 +2959,7 @@
       } else if (isDeleting && charIdx === 0) {
         isDeleting = false;
         roleIdx = (roleIdx + 1) % roles.length;
-        speed = 400;
+        speed = 350;
       }
 
       setTimeout(typeWriter, speed);
@@ -3096,6 +3027,7 @@
       }
     }
 
+    // Connects directly to Vishal's Real WhatsApp: 7623937052
     function handleBookingSubmit(e) {
       e.preventDefault();
       const name = document.getElementById("bookName").value;
@@ -3106,8 +3038,8 @@
 
       const message = `Hello Vishal! I would like to book a call.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Date:* ${encodeURIComponent(date)}%0A*Slot:* ${encodeURIComponent(slot)}%0A*Topic:* ${encodeURIComponent(topic)}`;
 
-      window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
-      alert(`Thank you ${name}! Your call request for ${date} (${slot}) is confirmed. Redirecting to WhatsApp to send invite details.`);
+      window.open(`https://wa.me/917623937052?text=${message}`, "_blank");
+      alert(`Thank you ${name}! Your call request for ${date} (${slot}) is confirmed. Opening WhatsApp to connect with Vishal at +91 76239 37052.`);
       closeBookModalDirect();
     }
 
@@ -3126,8 +3058,8 @@
         answer: "Vishal has architected and delivered **12+ turnkey ERP solutions**! His portfolio spans Multi-Stage Manufacturing & BOM ERPs, Multi-Branch Retail POS with offline sync, Statutory GST Financial suites, and Biometric Payroll systems."
       },
       {
-        keywords: ["call", "time", "timing", "available", "schedule", "hour", "hours", "morning", "evening"],
-        answer: "Vishal's preferred calling hours (IST) are: **Morning at 9:00 AM** and **Evening after 6:00 PM**. You can click 'Book Call' to pick a direct slot!"
+        keywords: ["call", "time", "timing", "available", "schedule", "hour", "hours", "morning", "evening", "phone", "number", "contact"],
+        answer: "You can directly call Vishal at **+91 76239 37052**! Preferred calling hours (IST): **Morning at 9:00 AM** and **Evening after 6:00 PM**."
       },
       {
         keywords: ["leader", "lead", "team", "experience", "years", "ramanshee"],
@@ -3140,6 +3072,10 @@
       {
         keywords: ["ai", "chatgpt", "deepseek", "claude", "antigravity"],
         answer: "Vishal leverages next-gen AI tools including **ChatGPT, DeepSeek, Claude, and Google Antigravity** to accelerate prototyping, verify complex math algorithms, and generate robust automated tests."
+      },
+      {
+        keywords: ["github", "repo", "git", "code"],
+        answer: "You can check Vishal's GitHub repository at **https://github.com/Vishal-Bhaliya/VB.git**!"
       },
       {
         keywords: ["education", "degree", "college", "graduate", "study"],
@@ -3173,11 +3109,11 @@
         }
 
         if (!foundAnswer) {
-          foundAnswer = "Great question! Vishal specializes in C#, .NET Core, 12+ ERP systems, and database optimization. Would you like to connect directly via WhatsApp or book a call for 9 AM / after 6 PM?";
+          foundAnswer = "Great question! Vishal specializes in C#, .NET Core, 12+ ERP systems, and database optimization. You can reach him directly at +91 76239 37052 or book a call slot for 9 AM / after 6 PM!";
         }
 
         appendChatMessage(foundAnswer, "bot");
-      }, 400);
+      }, 350);
     }
 
     function appendChatMessage(text, sender) {
